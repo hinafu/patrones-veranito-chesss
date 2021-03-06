@@ -60,7 +60,7 @@ public class Rook
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("ChessImages/BlackRook.gif")
+                getClass().getResource("chessImages/BlackRook.gif")
             );            
         }
         else
