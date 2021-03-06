@@ -21,6 +21,6 @@ public class ChessMain{
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.getContentPane().add( new ChessPanel() );
         frame.pack();
-        frame.setVisible( true );
+        frame.setVisible( true );		
     }
 }
