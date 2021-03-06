@@ -9,7 +9,7 @@ class BoardSquare{}
 class ChessGameBoard{}
 class ChessGameEngine{}
 class ChessGameLog{}
-class ChessGamePiece{}
+abstract ChessGamePiece{}
 class ChessGraveyard{}
 class ChessPanel{}
 class ChessMain{}
