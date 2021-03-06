@@ -90,4 +90,9 @@ public class Knight
         }
         return moves;
     }
+		
+		/* La clase para pintar le añadia una responsabilidad extra a la pieza del knight que ya tenia
+			los movimientos por eso se decidió removerla	*/
+		/* En su lugar se creo el package PieceUI que tiene la unica responsabilidad de pintar y que englobla
+			a todas las piezas*/
 }
