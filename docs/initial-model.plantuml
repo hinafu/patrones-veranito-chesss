@@ -37,4 +37,6 @@ ChessGamePiece <|-- Queen
 ChessGamePiece <|-- Rook
 ChessGamePiece <|-- Bishop
 ChessGamePiece <|-- Pawn
+
+ChessGameBoard --> BoardSquare
 @enduml
