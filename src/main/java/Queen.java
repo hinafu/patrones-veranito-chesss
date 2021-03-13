@@ -1,5 +1,7 @@
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 // import java.awt.Color;
 // -------------------------------------------------------------------------
 /**
@@ -12,6 +14,10 @@ import java.util.ArrayList;
  */
 public class Queen
     extends ChessGamePiece{
+	
+	
+	private static Queen instancia;
+	protected Map<Integer, String> icons_map;
     // ----------------------------------------------------------
     /**
      * Create a new Queen object.
@@ -28,6 +34,22 @@ public class Queen
     public Queen( ChessGameBoard board, int row, int col, int color ){
         super( board, row, col, color );
     }
+
+
+		
+		/*
+		public static Queen getInstancia(ChessGameBoard board, int row, int col, int color )
+    {
+			
+         if (instancia == null) {
+             instancia = new Queen(board, row, col, color);
+            System.out.println("El objeto ha sido creado");
+        }
+        else {
+            System.out.println("Ya existe el objeto");
+        }
+         return instancia;
+    }*/
     /**
      * Calculates the possible moves for this Queen.
      * @param board the board to check on
@@ -54,6 +76,17 @@ public class Queen
         allMoves.addAll( eastMoves );
         return allMoves;
     }
+
+	@Override
+	public ImageIcon createImageByPieceType() {
+		icons_map = new HashMap<Integer, String>();
+
+		icons_map.put(-1, "chessImages/default-Unassigned.gif");
+		icons_map.put(ChessGamePiece.BLACK, "chessImages/BlackRook.gif");
+		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteRook.gif");
+		
+		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
+	}
     /**
      * Creates an icon for this piece depending on the piece's color.
      *
