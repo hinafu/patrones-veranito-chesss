@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public abstract class ChessGamePiece{
+public abstract class ChessGamePiece extends render {
     private boolean             skipMoveGeneration;
     private int                 pieceColor;
     private ImageIcon           pieceImage;
@@ -62,7 +62,7 @@ public abstract class ChessGamePiece{
         int pieceColor ){
         skipMoveGeneration = false;
         this.pieceColor = pieceColor;
-        pieceImage = createImageByPieceType();
+        pieceImage = createImageByPieceType(pieceColor);
         pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
@@ -95,7 +95,7 @@ public abstract class ChessGamePiece{
         boolean skipMoveGeneration ){
         this.skipMoveGeneration = skipMoveGeneration;
         this.pieceColor = pieceColor;
-        pieceImage = this.createImageByPieceType();
+        pieceImage = this.createImageByPieceType(pieceColor);
         pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
@@ -407,7 +407,7 @@ public abstract class ChessGamePiece{
      * @return ImageIcon the image that represents this game piece, different
      *         for each piece.
      */
-    public abstract ImageIcon createImageByPieceType();
+    //public abstract ImageIcon createImageByPieceType();
     /**
      * Return the ImageIcon as an Image.
      *
@@ -436,14 +436,9 @@ public abstract class ChessGamePiece{
      *            the column to check
      * @return boolean true if the location is valid, false if not
      */
-    public boolean isOnScreen( int row, int col ){
-        if ( row >= 0 && row <= 7 && col >= 0 && col <= 7 ){
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+    public boolean isOnScreen( int row, int col) {
+			if ( row >= 0 && row <= 7 && col >= 0 && col <= 7 ) return true;
+			else return false;
     }
     // ----------------------------------------------------------
     /**
@@ -453,7 +448,7 @@ public abstract class ChessGamePiece{
      * @return true if in bounds, false otherwise
      */
     public boolean isPieceOnScreen(){
-        return isOnScreen( pieceRow, pieceColumn );
+			return isOnScreen( pieceRow, pieceColumn );
     }
     /**
      * Update this piece's position.
