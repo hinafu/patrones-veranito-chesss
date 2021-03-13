@@ -11,6 +11,8 @@ import javax.swing.*;
  */
 public class ChessPanel
     extends JPanel{
+	
+	 private static ChessPanel instancia;
     private ChessMenuBar    menuBar;
     private ChessGameBoard  gameBoard;
     private ChessGameLog    gameLog;
@@ -37,6 +39,18 @@ public class ChessPanel
         gameEngine = new ChessGameEngine( gameBoard ); // start the game
     }
     // ----------------------------------------------------------
+		
+		public static ChessPanel getInstancia()
+    {
+         if (instancia == null) {
+             instancia = new ChessPanel();
+            System.out.println("Se ha creado el Panel");
+        }
+        else {
+            System.out.println("Panel clonado");
+        }
+         return instancia;
+    }
     /**
      * Gets the logger object for use in other classes.
      * 
