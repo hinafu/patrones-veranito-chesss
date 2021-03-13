@@ -1,3 +1,5 @@
+package principal;
+
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 // -------------------------------------------------------------------------
@@ -55,17 +57,17 @@ public class Bishop extends ChessGamePiece{
 	public ImageIcon createImageByPieceType(){
 		if ( getColorOfPiece() == ChessGamePiece.WHITE ){
 			return new ImageIcon(
-				getClass().getResource("chessImages/WhiteBishop.gif")
+				"chessImages/WhiteBishop.gif"
 			);			
 		}
 		else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
 			return new ImageIcon(
-				getClass().getResource("chessImages/BlackBishop.gif")
+				"chessImages/BlackBishop.gif"
 			);
 		}
 		else{
 			return new ImageIcon(
-				getClass().getResource("chessImages/BlackBishop.gif")
+				"chessImages/BlackBishop.gif"
 			);
 		}
 	}

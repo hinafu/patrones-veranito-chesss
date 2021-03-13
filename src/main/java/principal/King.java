@@ -1,3 +1,5 @@
+package principal;
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,6 +79,7 @@ public class King
      */
     @Override
     public ImageIcon createImageByPieceType(){
+<<<<<<< Updated upstream:src/main/java/King.java
        		icons_map = new HashMap<Integer, String>();
 
 		icons_map.put(-1, "chessImages/default-Unassigned.gif" );
@@ -84,5 +87,23 @@ public class King
 		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteKing.gif");
 		
 		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
+=======
+        if ( getColorOfPiece() == ChessGamePiece.WHITE ){
+            return new ImageIcon(
+                "chessImages/WhiteKing.gif"
+            );            
+        }
+        else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
+            return new ImageIcon(
+                "chessImages/BlackKing.gif"
+            );            
+        }
+        else
+        {
+            return new ImageIcon(
+                "chessImages/default-Unassigned.gif"
+            );            
+        }
+>>>>>>> Stashed changes:src/main/java/principal/King.java
     }
 }

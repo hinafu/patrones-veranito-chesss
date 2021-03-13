@@ -1,7 +1,14 @@
+package principal;
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+<<<<<<< Updated upstream:src/main/java/Knight.java
 import java.util.HashMap;
 import java.util.Map;
+=======
+import principal.ChessGameBoard;
+
+>>>>>>> Stashed changes:src/main/java/principal/Knight.java
 // -------------------------------------------------------------------------
 /**
  * Represents a Knight game piece.
@@ -13,7 +20,10 @@ import java.util.Map;
  */
 public class Knight
     extends ChessGamePiece{
+<<<<<<< Updated upstream:src/main/java/Knight.java
 	    	protected Map<Integer, String> icons_map;
+=======
+>>>>>>> Stashed changes:src/main/java/principal/Knight.java
 
     /**
      * Knight constructor for gamePiece
@@ -43,7 +53,7 @@ public class Knight
         for ( int i = 2; i >= -2; i -= 4 ){
             for ( int j = 1; j >= -1; j -= 2 ){
                 if ( isOnScreen( pieceRow + i, pieceColumn + j )
-                    && ( isEnemy( board, pieceRow + i, pieceColumn + j ) ||
+                    && ( isenemy.isEnemy(board, pieceRow + i, pieceColumn + j ) ||
                         board.getCell(
                         pieceRow + i,
                         pieceColumn + j )
@@ -67,7 +77,7 @@ public class Knight
         for ( int i = 1; i >= -1; i -= 2 ){
             for ( int j = 2; j >= -2; j -= 4 ){
                 if ( isOnScreen( pieceRow + i, pieceColumn + j )
-                    && ( isEnemy( board, pieceRow + i, pieceColumn + j ) ||
+                    && ( isenemy.isEnemy(board, pieceRow + i, pieceColumn + j ) ||
                         board.getCell(
                         pieceRow + i,
                         pieceColumn + j )
@@ -101,6 +111,7 @@ public class Knight
      */
     @Override
     public ImageIcon createImageByPieceType(){
+<<<<<<< Updated upstream:src/main/java/Knight.java
 			
 			 		icons_map = new HashMap<Integer, String>();
 
@@ -111,5 +122,23 @@ public class Knight
 		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
 			
       
+=======
+        if ( getColorOfPiece() == ChessGamePiece.WHITE ){
+            return new ImageIcon(
+                getClass().getResource("chessImages/WhiteKnight.gif")
+            );            
+        }
+        else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
+            return new ImageIcon(
+               "chessImages/BlackKnight.gif"
+            );            
+        }
+        else
+        {
+            return new ImageIcon(
+                "chessImages/default-Unassigned.gif"
+            );            
+        }
+>>>>>>> Stashed changes:src/main/java/principal/Knight.java
     }
 }

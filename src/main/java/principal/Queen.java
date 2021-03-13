@@ -1,3 +1,5 @@
+package principal;
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 // import java.awt.Color;
@@ -63,18 +65,18 @@ public class Queen
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                getClass().getResource("chessImages/WhiteQueen.gif")
+              "chessImages/WhiteQueen.gif"
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("chessImages/BlackQueen.gif")
+             "chessImages/BlackQueen.gif"
             );            
         }
         else
         {
             return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif")
+                "chessImages/default-Unassigned.gif"
             ); 
         }
     }

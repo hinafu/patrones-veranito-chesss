@@ -1,5 +1,8 @@
+package principal;
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+
 // -------------------------------------------------------------------------
 /**
  * Represents a Pawn game piece. Unique in that it can move two locations on its
@@ -13,6 +16,8 @@ import java.util.ArrayList;
  */
 public class Pawn
     extends ChessGamePiece{
+		protected 				IsEnemy isenemy;
+
     private boolean notMoved;
     // ----------------------------------------------------------
     /**
@@ -98,19 +103,19 @@ public class Pawn
             }
             // check for enemy capture points
             if ( getColorOfPiece() == ChessGamePiece.WHITE ){
-                if ( isEnemy( board, pieceRow - 1, pieceColumn - 1 ) ){
+                if ( isenemy.isEnemy(board, pieceRow - 1, pieceColumn - 1 ) ){
                     moves.add( ( pieceRow - 1 ) + "," + ( pieceColumn - 1 ) );
                 }
-                if ( isEnemy( board, pieceRow - 1, pieceColumn + 1 ) ){
+                if (isenemy.isEnemy(board, pieceRow - 1, pieceColumn + 1 ) ){
                     moves.add( ( pieceRow - 1 ) + "," + ( pieceColumn + 1 ) );
                 }
             }
             else
             {
-                if ( isEnemy( board, pieceRow + 1, pieceColumn - 1 ) ){
+                if ( isenemy.isEnemy(board, pieceRow + 1, pieceColumn - 1 ) ){
                     moves.add( ( pieceRow + 1 ) + "," + ( pieceColumn - 1 ) );
                 }
-                if ( isEnemy( board, pieceRow + 1, pieceColumn + 1 ) ){
+                if (isenemy.isEnemy(board, pieceRow + 1, pieceColumn + 1 ) ){
                     moves.add( ( pieceRow + 1 ) + "," + ( pieceColumn + 1 ) );
                 }
             }
@@ -126,18 +131,18 @@ public class Pawn
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                getClass().getResource("chessImages/WhitePawn.gif")
+                "chessImages/WhitePawn.gif"
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("chessImages/BlackPawn.gif")
+               "chessImages/BlackPawn.gif"
             );            
         }
         else
         {
             return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif")
+               "chessImages/default-Unassigned.gif"
             );           
         }
     }

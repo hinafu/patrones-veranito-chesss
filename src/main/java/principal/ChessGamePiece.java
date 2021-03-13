@@ -1,3 +1,5 @@
+package principal;
+import principal.IsEnemy;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -14,6 +16,8 @@ import javax.swing.ImageIcon;
  * @version 2010.11.17
  */
 public abstract class ChessGamePiece{
+		protected IsEnemy isenemy;
+
     private boolean             skipMoveGeneration;
     private int                 pieceColor;
     private ImageIcon           pieceImage;
@@ -63,6 +67,7 @@ public abstract class ChessGamePiece{
         skipMoveGeneration = false;
         this.pieceColor = pieceColor;
         pieceImage = createImageByPieceType();
+				this.isenemy=new IsEnemy(pieceColor);
         pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
@@ -93,6 +98,7 @@ public abstract class ChessGamePiece{
         int col,
         int pieceColor,
         boolean skipMoveGeneration ){
+			this.isenemy=new IsEnemy(pieceColor);
         this.skipMoveGeneration = skipMoveGeneration;
         this.pieceColor = pieceColor;
         pieceImage = this.createImageByPieceType();
@@ -133,13 +139,13 @@ public abstract class ChessGamePiece{
         int numMoves ){
         ArrayList<String> moves = new ArrayList<String>();
         int count = 0;
-        if ( isPieceOnScreen() ){
+        if ( isPieceOnScreen() ){ 
             for ( int i = pieceRow + 1; i < 8 && count < numMoves; i++ ){
                 if ( ( board.getCell( i, pieceColumn ).getPieceOnSquare()
-                    == null || isEnemy( board, i, pieceColumn ) ) ){
+                    == null || isenemy.isEnemy(board, i, pieceColumn ) ) ){
                     moves.add( i + "," + pieceColumn );
                     count++;
-                    if ( isEnemy( board, i, pieceColumn ) ){
+                    if ( this.isenemy.isEnemy(board, i, pieceColumn ) ){
                         break;
                     }
                 }
@@ -170,10 +176,10 @@ public abstract class ChessGamePiece{
         if ( isPieceOnScreen() ){
             for ( int i = pieceRow - 1; i >= 0 && count < numMoves; i-- ){
                 if ( ( board.getCell( i, pieceColumn ).getPieceOnSquare()
-                    == null || isEnemy( board, i, pieceColumn ) ) ){
+                    == null || isenemy.isEnemy(board, i, pieceColumn ) ) ){
                     moves.add( i + "," + pieceColumn );
                     count++;
-                    if ( isEnemy( board, i, pieceColumn ) ){
+                    if ( isenemy.isEnemy(board, i, pieceColumn ) ){
                         break;
                     }
                 }
@@ -204,10 +210,10 @@ public abstract class ChessGamePiece{
         if ( isPieceOnScreen() ){
             for ( int i = pieceColumn + 1; i < 8 && count < numMoves; i++ ){
                 if ( ( board.getCell( pieceRow, i ).getPieceOnSquare()
-                    == null || isEnemy( board, pieceRow, i ) ) ){
+                    == null || isenemy.isEnemy(board, pieceRow, i ) ) ){
                     moves.add( pieceRow + "," + i );
                     count++;
-                    if ( isEnemy( board, pieceRow, i ) ){
+                    if ( isenemy.isEnemy(board, pieceRow, i ) ){
                         break;
                     }
                 }
@@ -238,10 +244,10 @@ public abstract class ChessGamePiece{
         if ( isPieceOnScreen() ){
             for ( int i = pieceColumn - 1; i >= 0 && count < numMoves; i-- ){
                 if ( ( board.getCell(pieceRow, i ).getPieceOnSquare()
-                    == null || isEnemy( board, pieceRow, i ) ) ){
+                    == null || isenemy.isEnemy(board, pieceRow, i ) ) ){
                     moves.add( pieceRow + "," + i );
                     count++;
-                    if ( isEnemy( board, pieceRow, i ) ){
+                    if ( isenemy.isEnemy(board, pieceRow, i ) ){
                         break;
                     }
                 }
@@ -277,7 +283,7 @@ public abstract class ChessGamePiece{
                     moves.add( ( pieceRow - i ) + "," + ( pieceColumn - i ) );
                     count++;
                 }
-                else if ( isEnemy( board, pieceRow - i, pieceColumn - i ) ){
+                else if ( isenemy.isEnemy(board, pieceRow - i, pieceColumn - i ) ){
                     moves.add( ( pieceRow - i ) + "," + ( pieceColumn - i ) );
                     count++;
                     break;
@@ -314,7 +320,7 @@ public abstract class ChessGamePiece{
                     moves.add( ( pieceRow - i ) + "," + ( pieceColumn + i ) );
                     count++;
                 }
-                else if ( isEnemy( board, pieceRow - i, pieceColumn + i ) ){
+                else if ( isenemy.isEnemy(board, pieceRow - i, pieceColumn + i ) ){
                     moves.add( ( pieceRow - i ) + "," + ( pieceColumn + i ) );
                     count++;
                     break;
@@ -351,7 +357,7 @@ public abstract class ChessGamePiece{
                     moves.add( ( pieceRow + i ) + "," + ( pieceColumn - i ) );
                     count++;
                 }
-                else if ( isEnemy( board, pieceRow + i, pieceColumn - i ) ){
+                else if ( isenemy.isEnemy(board, pieceRow + i, pieceColumn - i ) ){
                     moves.add( ( pieceRow + i ) + "," + ( pieceColumn - i ) );
                     count++;
                     break;
@@ -388,7 +394,7 @@ public abstract class ChessGamePiece{
                     moves.add( ( pieceRow + i ) + "," + ( pieceColumn + i ) );
                     count++;
                 }
-                else if ( isEnemy( board, pieceRow + i, pieceColumn + i ) ){
+                else if ( isenemy.isEnemy(board, pieceRow + i, pieceColumn + i ) ){
                     moves.add( ( pieceRow + i ) + "," + ( pieceColumn + i ) );
                     count++;
                     break;
@@ -437,13 +443,7 @@ public abstract class ChessGamePiece{
      * @return boolean true if the location is valid, false if not
      */
     public boolean isOnScreen( int row, int col ){
-        if ( row >= 0 && row <= 7 && col >= 0 && col <= 7 ){
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+			return row >= 0 && row <= 7 && col >= 0 && col <= 7;
     }
     // ----------------------------------------------------------
     /**
@@ -470,7 +470,7 @@ public abstract class ChessGamePiece{
         if ( canMove( board, row, col ) ){
             String moveLog = this.toString() + " -> ";
             board.clearCell( pieceRow, pieceColumn );
-            if ( isEnemy( board, row, col ) ){
+            if ( isenemy.isEnemy(board, row, col ) ){
                 ChessGraveyard graveyard;
                 ChessGameEngine gameEngine =
                     ( (ChessPanel)board.getParent() ).getGameEngine();
@@ -612,7 +612,7 @@ public abstract class ChessGamePiece{
                 int col = Integer.parseInt( currCoords[1] );
                 if ( canMove( board, row, col ) ) // only show legal moves
                 {
-                    if ( isEnemy( board, row, col ) ){
+                    if ( isenemy.isEnemy(board, row, col ) ){
                         board.getCell( row, col ).setBackground(
                             Color.YELLOW );
                     }
@@ -648,53 +648,7 @@ public abstract class ChessGamePiece{
         }
         return false;
     }
-    // ----------------------------------------------------------
-    /**
-     * Determines if the row and column contains an enemy piece. This is defined
-     * in GamePiece and not ChessGameBoard because different pieces have
-     * different enemies depending on their colors.
-     *
-     * @param row
-     *            row of the GamePiece
-     * @param col
-     *            column of the GamePiece
-     * @param board
-     *            the board to check
-     * @return true if it is an enemy piece, false if not
-     */
-    public boolean isEnemy( ChessGameBoard board, int row, int col ){
-        if ( row > 7 || col > 7 || row < 0 || col < 0 ){
-            return false;
-        }
-        ChessGamePiece enemyPiece =
-            board.getCell( row, col ).getPieceOnSquare() == null
-                ? null
-                : board.getCell( row, col ).getPieceOnSquare();
-        if ( enemyPiece == null
-            || this.getColorOfPiece() == ChessGamePiece.UNASSIGNED
-            || enemyPiece.getColorOfPiece() == ChessGamePiece.UNASSIGNED ){
-            return false;
-        }
-        if ( this.getColorOfPiece() == ChessGamePiece.WHITE ){
-            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.BLACK ){
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            if ( enemyPiece.getColorOfPiece() == ChessGamePiece.WHITE ){
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    }
+   
     // ----------------------------------------------------------
     /**
      * Gets a list of GamePieces that can currently attack this game piece.
