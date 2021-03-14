@@ -13,6 +13,10 @@ import javax.swing.JPanel;
  */
 public class BoardSquare
     extends JPanel{
+	
+	
+	 private static BoardSquare boardSquareInstance;
+
     private int            row;
     private int            col;
     private ChessGamePiece piece;
@@ -28,6 +32,14 @@ public class BoardSquare
      * @param piece
      *            the game piece
      */
+		
+		
+		public static BoardSquare getBoardSquare(int row, int col, ChessGamePiece piece){
+			if(boardSquareInstance==null){
+				boardSquareInstance = new BoardSquare(row, col, piece);
+			}
+			return boardSquareInstance;
+		}
     public BoardSquare( int row, int col, ChessGamePiece piece ){
         super();
         this.row = row;

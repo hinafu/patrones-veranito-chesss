@@ -15,7 +15,11 @@ import java.util.Map;
  */
 public class King
     extends ChessGamePiece{
+<<<<<<< Updated upstream:src/main/java/principal/King.java
     	protected Map<Integer, String> icons_map;
+=======
+		 private static King kingInstance;
+>>>>>>> Stashed changes:src/main/java/King.java
 
     // ----------------------------------------------------------
     /**
@@ -30,9 +34,19 @@ public class King
      * @param color
      *            either GamePiece.WHITE, BLACK, or UNASSIGNED
      */
-    public King( ChessGameBoard board, int row, int col, int color ){
+    private King( ChessGameBoard board, int row, int col, int color ){
         super( board, row, col, color, false );
     }
+		
+		
+			public static King getKingInstance(ChessGameBoard board,int row, int col, int color){
+			if(kingInstance==null){
+				kingInstance = new King(board,row, col, color);
+			}
+			return kingInstance;
+		}
+		
+		
     /**
      * Calculates the possible moves for this piece. These are ALL the possible
      * moves, including illegal (but at the same time valid) moves.

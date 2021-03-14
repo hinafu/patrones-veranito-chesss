@@ -26,7 +26,7 @@ public class ChessPanel
     public ChessPanel(){
         this.setLayout( new BorderLayout() );
         menuBar = new ChessMenuBar();
-        gameBoard = new ChessGameBoard();
+        gameBoard = new ChessGameBoard();  
         gameLog = new ChessGameLog();
         playerOneGraveyard = new ChessGraveyard( "Player 1's graveyard" );
         playerTwoGraveyard = new ChessGraveyard( "Player 2's graveyard" );
