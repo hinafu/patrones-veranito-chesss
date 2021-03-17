@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
 // -------------------------------------------------------------------------
 /**
  * The panel that represents the Chess game board. Contains a few methods that
@@ -232,7 +232,7 @@ public class ChessGameBoard extends JPanel{
      * @version 2010.11.16
      */
     private class BoardListener
-        implements MouseListener
+        extends MouseAdapter
     {
         /**
          * Do an action when the left mouse button is clicked.
@@ -246,38 +246,6 @@ public class ChessGameBoard extends JPanel{
                 ( (ChessPanel)getParent() ).getGameEngine()
                     .determineActionFromSquareClick( e );
             }
-        }
-        /**
-         * Unused method.
-         *
-         * @param e
-         *            the mouse event from the listener
-         */
-        public void mouseEntered( MouseEvent e ){ /* not used */
-        }
-        /**
-         * Unused method.
-         *
-         * @param e
-         *            the mouse event from the listener
-         */
-        public void mouseExited( MouseEvent e ){ /* not used */
-        }
-        /**
-         * Unused method.
-         *
-         * @param e
-         *            the mouse event from the listener
-         */
-        public void mousePressed( MouseEvent e ){ /* not used */
-        }
-        /**
-         * Unused method.
-         *
-         * @param e
-         *            the mouse event from the listener
-         */
-        public void mouseReleased( MouseEvent e ){ /* not used */
         }
     }
 }
