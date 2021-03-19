@@ -1,5 +1,3 @@
-package principal;
-
 import java.util.ArrayList;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -184,11 +182,7 @@ public class ChessGameBoard extends JPanel{
                         pieceToAdd = new Bishop( this, i, j, colNum );
                     }
                     else if ( j == 3 ){
-<<<<<<< Updated upstream:src/main/java/principal/ChessGameBoard.java
-                        pieceToAdd = new King( this, i, j, colNum ); 
-=======
-											pieceToAdd =  King.getKingInstance(this, i, j, colNum );
->>>>>>> Stashed changes:src/main/java/ChessGameBoard.java
+                        pieceToAdd = King.getKingInstance( this, i, j, colNum );
                     }
                     else
                     {

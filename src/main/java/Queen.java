@@ -1,5 +1,3 @@
-package principal;
-
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 // import java.awt.Color;
@@ -65,19 +63,24 @@ public class Queen
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-              "chessImages/WhiteQueen.gif"
+                getClass().getResource("chessImages/WhiteQueen.gif")
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-             "chessImages/BlackQueen.gif"
+                getClass().getResource("chessImages/BlackQueen.gif")
             );            
         }
         else
         {
             return new ImageIcon(
-                "chessImages/default-Unassigned.gif"
+                getClass().getResource("chessImages/default-Unassigned.gif")
             ); 
         }
     }
+
+	@Override
+	public ChessGamePiece clonar(ChessGameBoard board) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 }

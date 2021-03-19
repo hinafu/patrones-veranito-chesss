@@ -1,5 +1,3 @@
-package principal;
-
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 // -------------------------------------------------------------------------
@@ -57,18 +55,23 @@ public class Bishop extends ChessGamePiece{
 	public ImageIcon createImageByPieceType(){
 		if ( getColorOfPiece() == ChessGamePiece.WHITE ){
 			return new ImageIcon(
-				"chessImages/WhiteBishop.gif"
+				getClass().getResource("chessImages/WhiteBishop.gif")
 			);			
 		}
 		else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
 			return new ImageIcon(
-				"chessImages/BlackBishop.gif"
+				getClass().getResource("chessImages/BlackBishop.gif")
 			);
 		}
 		else{
 			return new ImageIcon(
-				"chessImages/BlackBishop.gif"
+				getClass().getResource("chessImages/BlackBishop.gif")
 			);
 		}
+	}
+
+	@Override
+	public ChessGamePiece clonar(ChessGameBoard board) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }

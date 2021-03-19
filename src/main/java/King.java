@@ -1,9 +1,5 @@
-package principal;
-
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 // -------------------------------------------------------------------------
 /**
  * Represents a King game piece.
@@ -15,12 +11,7 @@ import java.util.Map;
  */
 public class King
     extends ChessGamePiece{
-<<<<<<< Updated upstream:src/main/java/principal/King.java
-    	protected Map<Integer, String> icons_map;
-=======
-		 private static King kingInstance;
->>>>>>> Stashed changes:src/main/java/King.java
-
+	private static King kingInstance;
     // ----------------------------------------------------------
     /**
      * Create a new King object.
@@ -34,19 +25,13 @@ public class King
      * @param color
      *            either GamePiece.WHITE, BLACK, or UNASSIGNED
      */
-    private King( ChessGameBoard board, int row, int col, int color ){
+	
+	public King(ChessGamePiece piece, ChessGameBoard board){
+        super(piece,board);
+    }
+    public King( ChessGameBoard board, int row, int col, int color ){
         super( board, row, col, color, false );
     }
-		
-		
-			public static King getKingInstance(ChessGameBoard board,int row, int col, int color){
-			if(kingInstance==null){
-				kingInstance = new King(board,row, col, color);
-			}
-			return kingInstance;
-		}
-		
-		
     /**
      * Calculates the possible moves for this piece. These are ALL the possible
      * moves, including illegal (but at the same time valid) moves.
@@ -93,31 +78,37 @@ public class King
      */
     @Override
     public ImageIcon createImageByPieceType(){
-<<<<<<< Updated upstream:src/main/java/King.java
-       		icons_map = new HashMap<Integer, String>();
-
-		icons_map.put(-1, "chessImages/default-Unassigned.gif" );
-		icons_map.put(ChessGamePiece.BLACK,"chessImages/BlackKing.gif");
-		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteKing.gif");
-		
-		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
-=======
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                "chessImages/WhiteKing.gif"
+                getClass().getResource("chessImages/WhiteKing.gif")
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                "chessImages/BlackKing.gif"
+                getClass().getResource("chessImages/BlackKing.gif" )
             );            
         }
         else
         {
             return new ImageIcon(
-                "chessImages/default-Unassigned.gif"
+                getClass().getResource("chessImages/default-Unassigned.gif" )
             );            
         }
->>>>>>> Stashed changes:src/main/java/principal/King.java
     }
+		public static King getKingInstance(ChessGameBoard board,int row, int col, int color){
+			if(kingInstance==null){
+				kingInstance = new King(board,row, col, color);
+			}
+			return kingInstance;
+		}
+		@Override
+	public ChessGamePiece clonar(ChessGameBoard board) {
+		King king = null;
+		try{
+			king = (King)this.clone();
+		}catch(CloneNotSupportedException e){
+			e.printStackTrace();
+		}
+		return king;
+	}
 }

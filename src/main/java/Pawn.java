@@ -1,8 +1,5 @@
-package principal;
-
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
-
 // -------------------------------------------------------------------------
 /**
  * Represents a Pawn game piece. Unique in that it can move two locations on its
@@ -16,8 +13,6 @@ import java.util.ArrayList;
  */
 public class Pawn
     extends ChessGamePiece{
-		protected 				IsEnemy isenemy;
-
     private boolean notMoved;
     // ----------------------------------------------------------
     /**
@@ -103,19 +98,19 @@ public class Pawn
             }
             // check for enemy capture points
             if ( getColorOfPiece() == ChessGamePiece.WHITE ){
-                if ( isenemy.isEnemy(board, pieceRow - 1, pieceColumn - 1 ) ){
+                if ( isEnemy( board, pieceRow - 1, pieceColumn - 1 ) ){
                     moves.add( ( pieceRow - 1 ) + "," + ( pieceColumn - 1 ) );
                 }
-                if (isenemy.isEnemy(board, pieceRow - 1, pieceColumn + 1 ) ){
+                if ( isEnemy( board, pieceRow - 1, pieceColumn + 1 ) ){
                     moves.add( ( pieceRow - 1 ) + "," + ( pieceColumn + 1 ) );
                 }
             }
             else
             {
-                if ( isenemy.isEnemy(board, pieceRow + 1, pieceColumn - 1 ) ){
+                if ( isEnemy( board, pieceRow + 1, pieceColumn - 1 ) ){
                     moves.add( ( pieceRow + 1 ) + "," + ( pieceColumn - 1 ) );
                 }
-                if (isenemy.isEnemy(board, pieceRow + 1, pieceColumn + 1 ) ){
+                if ( isEnemy( board, pieceRow + 1, pieceColumn + 1 ) ){
                     moves.add( ( pieceRow + 1 ) + "," + ( pieceColumn + 1 ) );
                 }
             }
@@ -131,19 +126,24 @@ public class Pawn
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                "chessImages/WhitePawn.gif"
+                getClass().getResource("chessImages/WhitePawn.gif")
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-               "chessImages/BlackPawn.gif"
+                getClass().getResource("chessImages/BlackPawn.gif")
             );            
         }
         else
         {
             return new ImageIcon(
-               "chessImages/default-Unassigned.gif"
+                getClass().getResource("chessImages/default-Unassigned.gif")
             );           
         }
     }
+
+	@Override
+	public ChessGamePiece clonar(ChessGameBoard board) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 }

@@ -1,5 +1,3 @@
-package principal;
-
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,6 +61,11 @@ public class Rook extends ChessGamePiece{
 		icons_map.put(ChessGamePiece.BLACK, "chessImages/BlackRook.gif");
 		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteRook.gif");
 		
-		return new ImageIcon("chessImages/BlackRook.gif");
+		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
+	}
+
+	@Override
+	public ChessGamePiece clonar(ChessGameBoard board) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 }
