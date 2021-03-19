@@ -179,7 +179,9 @@ public class ChessGameBoard extends JPanel{
                         pieceToAdd = new Knight( this, i, j, colNum );
                     }
                     else if ( j == 2 || j == 5 ){
-                        pieceToAdd = new Bishop( this, i, j, colNum );
+//											Bishop nuevo=new Bishop(this, j, colNum, colNum);
+Bishop nuevo=null;
+                        pieceToAdd = nuevo;
                     }
                     else if ( j == 3 ){
                         pieceToAdd = new King( this, i, j, colNum );

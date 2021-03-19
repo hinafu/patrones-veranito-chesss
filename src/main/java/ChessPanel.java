@@ -47,7 +47,7 @@ public class ChessPanel
             System.out.println("Se ha creado el Panel");
         }
         else {
-            System.out.println("Panel clonado");
+            System.out.println("Se ha intentado instanciar otro ChessPanel, pero sin exito");
         }
          return instancia;
     }
