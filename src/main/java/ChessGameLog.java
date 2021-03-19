@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class ChessGameLog
     extends JScrollPane{
+    private static ChessGameLog logInstance;
     private JTextArea textArea;
     // ----------------------------------------------------------
     /**
@@ -25,6 +26,15 @@ public class ChessGameLog
             JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS );
         textArea = ( (JTextArea)this.getViewport().getView() );
     }
+    
+    
+      public static ChessGameLog getLogInstance() {
+        if(logInstance == null){
+            logInstance = new ChessGameLog();
+        }
+        return logInstance;
+      }
+    
     // ----------------------------------------------------------
     /**
      * Adds a new line of text to the log.

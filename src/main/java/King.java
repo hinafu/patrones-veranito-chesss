@@ -109,6 +109,6 @@ public class King
 		}catch(CloneNotSupportedException e){
 			e.printStackTrace();
 		}
-		return king;
+		return null;
 	}
 }
