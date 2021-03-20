@@ -16,8 +16,9 @@ public class NullKnight extends ChessGamePiece{
 		throw new UnsupportedOperationException("no soportado"); //To change body of generated methods, choose Tools | Templates.
 	}
 
+    
 	/*@Override
-	public ImageIcon createImageByPieceType() {
+	public ImageIcon PieceUI() {
 		throw new UnsupportedOperationException("NO SOportado"); //To change body of generated methods, choose Tools | Templates.
 	}*/
 	
