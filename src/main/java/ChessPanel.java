@@ -40,17 +40,7 @@ public class ChessPanel
     }
     // ----------------------------------------------------------
 		
-		public static ChessPanel getInstancia()
-    {
-         if (instancia == null) {
-             instancia = new ChessPanel();
-            System.out.println("Se ha creado el Panel");
-        }
-        else {
-            System.out.println("Se ha intentado instanciar otro ChessPanel, pero sin exito");
-        }
-         return instancia;
-    }
+
     /**
      * Gets the logger object for use in other classes.
      * 
@@ -96,5 +86,16 @@ public class ChessPanel
         {
             return null;
         }
+    }
+		
+				public static ChessPanel getInstanciar()
+    {
+         if (instancia == null) {
+             instancia = new ChessPanel();
+            System.out.println("Se ha instanciado el Panel");
+        }else {
+            System.out.println("No se ha podido instanciar otro Panel");
+        }
+         return instancia;
     }
 }
