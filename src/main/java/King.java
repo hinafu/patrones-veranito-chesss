@@ -105,10 +105,10 @@ public class King
 	public ChessGamePiece clonar(ChessGameBoard board) {
 		King king = null;
 		try{
-			king = (King)this.clone();
+			return (King)this.clone();
 		}catch(CloneNotSupportedException e){
 			e.printStackTrace();
 		}
-		return null;
+		return king;
 	}
 }
