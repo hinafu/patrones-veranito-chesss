@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Carloss
+ * @author Christian-barron
  */
 public class NullKnight extends ChessGamePiece{
 
