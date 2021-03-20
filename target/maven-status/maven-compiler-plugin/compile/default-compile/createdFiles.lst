@@ -2,6 +2,7 @@ Queen.class
 Bishop.class
 ChessGameBoard$BoardListener.class
 ChessPanel.class
+PieceFactory.class
 ChessGameBoard.class
 ChessGameEngine.class
 ChessGameLog.class

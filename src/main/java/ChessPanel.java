@@ -88,7 +88,7 @@ public class ChessPanel
         }
     }
 		
-				public static ChessPanel getInstanciar()
+		public static ChessPanel getInstanciar()
     {
          if (instancia == null) {
              instancia = new ChessPanel();

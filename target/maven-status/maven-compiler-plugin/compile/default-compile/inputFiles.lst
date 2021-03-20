@@ -1,15 +1,19 @@
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGameEngine.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessMain.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Rook.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGamePiece.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessMenuBar.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\King.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Knight.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGameLog.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Queen.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGraveyard.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\BoardSquare.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGameBoard.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Pawn.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Bishop.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessPanel.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\NullBishop.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\Knight.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\test\NullChessGamePiece.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\ChessGamePiece.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\ChessGraveyard.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\Pawn.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\Bishop.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\BoardSquare.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\AbstractBishop.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\ChessGameEngine.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\Rook.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\King.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\ChessGameLog.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\ChessPanel.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\Queen.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\ChessMain.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\ChessGameBoard.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\ChessMenuBar.java
+C:\Users\Carloss\Desktop\VERANO 2021\Patrones\patrones-veranito-chesss\src\main\java\test\Queen.java

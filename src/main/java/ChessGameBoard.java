@@ -162,33 +162,50 @@ public class ChessGameBoard extends JPanel{
                 ChessGamePiece pieceToAdd;
                 if ( i == 1 ) // black pawns
                 {
-                    pieceToAdd = new Pawn( this, i, j, ChessGamePiece.BLACK );
+                    pieceToAdd =PieceFactory.crear( "Pawn",this, i, j, ChessGamePiece.BLACK );
                 }
                 else if ( i == 6 ) // white pawns
                 {
-                    pieceToAdd = new Pawn( this, i, j, ChessGamePiece.WHITE );
+                    pieceToAdd =PieceFactory.crear( "Pawn",this, i, j, ChessGamePiece.WHITE);
                 }
                 else if ( i == 0 || i == 7 ) // main rows
                 {
-                    int colNum =
-                        i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
+//                    int colNum =
+//                        i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
                     if ( j == 0 || j == 7 ){
-                        pieceToAdd = new Rook( this, i, j, colNum );
+											if(i == 0){
+												pieceToAdd =PieceFactory.crear( "Rook",this, i, j, ChessGamePiece.BLACK );
+											}else{
+												pieceToAdd =PieceFactory.crear( "Rook",this, i, j, ChessGamePiece.WHITE );
+											}   
                     }
                     else if ( j == 1 || j == 6 ){
-                        pieceToAdd = new Knight( this, i, j, colNum );
-                    }
+											if(i == 0){
+												pieceToAdd =PieceFactory.crear( "Knight",this, i, j, ChessGamePiece.BLACK );
+											}else{
+												pieceToAdd =PieceFactory.crear( "Knight",this, i, j, ChessGamePiece.WHITE );
+											}                    }
                     else if ( j == 2 || j == 5 ){
-											Bishop nuevo=new Bishop(this,i, j, colNum);
-//												Bishop nuevo=null;
-                        pieceToAdd = nuevo;
+											if(i == 0){
+												pieceToAdd =PieceFactory.crear( "Bishop",this, i, j, ChessGamePiece.BLACK );
+											}else{
+												pieceToAdd =PieceFactory.crear( "Bishop",this, i, j, ChessGamePiece.WHITE );
+											}
                     }
                     else if ( j == 3 ){
-                        pieceToAdd = new King( this, i, j, colNum );
+											if(i == 0){
+												pieceToAdd =PieceFactory.crear( "King",this, i, j, ChessGamePiece.BLACK );
+											}else{
+												pieceToAdd =PieceFactory.crear( "King",this, i, j, ChessGamePiece.WHITE );
+											}
                     }
                     else
-                    {
-                        pieceToAdd = new Queen( this, i, j, colNum );
+                    {		
+											if(i == 0){
+												pieceToAdd =PieceFactory.crear( "Queen",this, i, j, ChessGamePiece.BLACK );
+											}else{
+												pieceToAdd =PieceFactory.crear( "Queen",this, i, j, ChessGamePiece.WHITE );
+											}
                     }
                 }
                 else
