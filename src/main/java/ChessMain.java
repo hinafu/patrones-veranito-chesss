@@ -17,18 +17,9 @@ public class ChessMain{
      *            command line arguments, not used
      */
     public static void main( String[] args ){
-        JFrame frame = new JFrame( "YetAnotherChessGame 1.0" );
-        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-				
-        frame.getContentPane().add( new ChessPanel().getInstanciar() );
-        frame.pack();
-        frame.setVisible( true );		
-				
-								
-//				JFrame frame2 = new JFrame( "YetAnotherChessGame 2.0" );
-//        frame2.setDefaultCloseOperation( frame2.EXIT_ON_CLOSE );
-//        frame2.getContentPane().add( new ChessPanel().getInstanciar() );
-//        frame2.pack();
-//        frame2.setVisible( true );	
+		
+				Subject subjectProxied = new SubjectProxy();
+				subjectProxied.doOperation("admin");
+				subjectProxied.doOperation("admin");
     }
 }

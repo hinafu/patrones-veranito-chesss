@@ -11,8 +11,11 @@ ChessGraveyard.class
 King.class
 Knight.class
 BoardSquare.class
+SubjectProxy.class
 Pawn.class
 ChessMenuBar$MenuListener.class
+SubjectAdmin.class
 ChessMain.class
 Rook.class
 ChessGamePiece.class
+Subject.class
