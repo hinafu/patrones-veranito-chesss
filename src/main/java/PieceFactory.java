@@ -34,8 +34,5 @@ public class PieceFactory {
 			default:
 				return null;
 		}
-			
-//		ChessGamePiece nuevo=null; 
-//		return null;
 	}
 }

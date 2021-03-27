@@ -82,8 +82,8 @@ public class Queen
 		icons_map = new HashMap<Integer, String>();
 
 		icons_map.put(-1, "chessImages/default-Unassigned.gif");
-		icons_map.put(ChessGamePiece.BLACK, "chessImages/BlackRook.gif");
-		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteRook.gif");
+		icons_map.put(ChessGamePiece.BLACK, "chessImages/BlackQueen.gif");
+		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteQueen.gif");
 		
 		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
 	}
