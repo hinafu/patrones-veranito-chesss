@@ -181,12 +181,11 @@ public class ChessGameBoard extends JPanel {
                 {
                     //  pieceToAdd = new Pawn( this, i, j, ChessGamePiece.WHITE );
                     pieceToAdd = factory.createPiece("Pawn", this, i, j, ChessGamePiece.WHITE);
-
+                    // pieceTo Add = modernFactory.createPieceModern("PawnModern", this, j, j, ERROR);
                 } else if (i == 0 || i == 7) // main rows
                 {
                     int colNum
                             = i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
-                    System.out.println(colNum);
                     if (j == 0 || j == 7) {
                         //pieceToAdd = new Rook( this, i, j, colNum );
                         pieceToAdd = factory.createPiece("Rook", this, i, j, colNum);

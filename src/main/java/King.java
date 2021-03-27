@@ -32,6 +32,10 @@ public class King
     public King( ChessGameBoard board, int row, int col, int color ){
         super( board, row, col, color, false );
     }
+
+    King(ChessGameBoard board) {
+        super(board);
+    }
     /**
      * Calculates the possible moves for this piece. These are ALL the possible
      * moves, including illegal (but at the same time valid) moves.
@@ -78,22 +82,7 @@ public class King
      */
     @Override
     public ImageIcon createImageByPieceType(){
-        if ( getColorOfPiece() == ChessGamePiece.WHITE ){
-            return new ImageIcon(
-                getClass().getResource("chessImages/WhiteKing.gif")
-            );            
-        }
-        else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
-            return new ImageIcon(
-                getClass().getResource("chessImages/BlackKing.gif" )
-            );            
-        }
-        else
-        {
-            return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif" )
-            );            
-        }
+        return null;
     }
 		public static King getKingInstance(ChessGameBoard board,int row, int col, int color){
 			if(kingInstance==null){

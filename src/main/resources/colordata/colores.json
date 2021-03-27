@@ -1,0 +1,32 @@
+{
+	"Rook": {
+		"-1" : "chessImages/default-Unassigned.gif",
+		"0": "chessImages/BlackRook.gif",
+		"1": "chessImages/WhiteRook.gif"
+	},
+	"Knight" : {
+		"-1": "chessImages/default-Unassigned.gif",
+		"0": "chessImages/BlackKnight.gif",
+		"1": "chessImages/WhiteKnight.gif"
+	},
+	"Bishop" : {
+		"-1": "chessImages/default-Unassigned.gif",
+		"0": "chessImages/BlackBishop.gif",
+		"1": "chessImages/WhiteBishop.gif"
+	},
+	"King" : {
+		"-1": "chessImages/default-Unassigned.gif",
+		"0": "chessImages/BlackKing.gif",
+		"1": "chessImages/WhiteKing.gif"
+	},
+	"Queen" : {
+		"-1": "chessImages/default-Unassigned.gif",
+		"0": "chessImages/BlackQueen.gif",
+		"1": "chessImages/WhiteQueen.gif"
+	},
+	"Pawn" : {
+		"-1": "chessImages/default-Unassigned.gif",
+		"0": "chessImages/BlackPawn.gif",
+		"1": "chessImages/WhitePawn.gif"
+	}
+}

@@ -12,6 +12,10 @@ import java.util.ArrayList;
  */
 public class Queen
     extends ChessGamePiece{
+    
+     public Queen(ChessGameBoard board){
+        super(board);
+    }
     // ----------------------------------------------------------
     /**
      * Create a new Queen object.
@@ -61,22 +65,7 @@ public class Queen
      */
     @Override
     public ImageIcon createImageByPieceType(){
-        if ( getColorOfPiece() == ChessGamePiece.WHITE ){
-            return new ImageIcon(
-                getClass().getResource("chessImages/WhiteQueen.gif")
-            );            
-        }
-        else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
-            return new ImageIcon(
-                getClass().getResource("chessImages/BlackQueen.gif")
-            );            
-        }
-        else
-        {
-            return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif")
-            ); 
-        }
+        return null;
     }
 
 	@Override

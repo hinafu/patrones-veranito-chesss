@@ -13,6 +13,10 @@ import java.util.Map;
  */
 public class Rook extends ChessGamePiece{
 	protected Map<Integer, String> icons_map;
+        
+         public Rook(ChessGameBoard board){
+        super(board);
+    }
 	// private ArrayList<String> possibleMoves;
 	// ----------------------------------------------------------
 	/**
@@ -55,14 +59,9 @@ public class Rook extends ChessGamePiece{
 	 */
 	@Override
 	public ImageIcon createImageByPieceType() {
-		icons_map = new HashMap<Integer, String>();
-
-		icons_map.put(-1, "chessImages/default-Unassigned.gif");
-		icons_map.put(ChessGamePiece.BLACK, "chessImages/BlackRook.gif");
-		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteRook.gif");
-		
-		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
-	}
+	
+            return null;
+        }
 
 	@Override
 	public ChessGamePiece clonar(ChessGameBoard board) {

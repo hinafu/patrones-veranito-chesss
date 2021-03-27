@@ -22,9 +22,14 @@ public class Bishop extends ChessGamePiece{
 	 * @param color
 	 *			either GamePiece.WHITE, BLACK, or UNASSIGNED
 	 */
+    
 	public Bishop( ChessGameBoard board, int row, int col, int color ){
 		super( board, row, col, color );
 	}
+
+        Bishop(ChessGameBoard board) {
+            super(board);
+    }
 	/**
 	 * Calculates the possible moves for this piece. These are ALL the possible
 	 * moves, including illegal (but at the same time valid) moves.
@@ -33,7 +38,8 @@ public class Bishop extends ChessGamePiece{
 	 *			the game board to calculate moves on
 	 * @return ArrayList<String> the moves
 	 */
-	@Override
+
+        @Override
 	protected ArrayList<String> calculatePossibleMoves( ChessGameBoard board ){
 		ArrayList<String> northEastMoves = calculateNorthEastMoves( board, 8 );
 		ArrayList<String> northWestMoves = calculateNorthWestMoves( board, 8 );
@@ -53,21 +59,7 @@ public class Bishop extends ChessGamePiece{
 	 */
 	@Override
 	public ImageIcon createImageByPieceType(){
-		if ( getColorOfPiece() == ChessGamePiece.WHITE ){
-			return new ImageIcon(
-				getClass().getResource("chessImages/WhiteBishop.gif")
-			);			
-		}
-		else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
-			return new ImageIcon(
-				getClass().getResource("chessImages/BlackBishop.gif")
-			);
-		}
-		else{
-			return new ImageIcon(
-				getClass().getResource("chessImages/BlackBishop.gif")
-			);
-		}
+		return null;
 	}
 
 	@Override

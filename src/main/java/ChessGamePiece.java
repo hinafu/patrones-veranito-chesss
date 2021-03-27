@@ -13,10 +13,13 @@ import javax.swing.ImageIcon;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public abstract class ChessGamePiece implements Cloneable{
+public abstract class ChessGamePiece implements Cloneable {
     private boolean             skipMoveGeneration;
     private int                 pieceColor;
     private ImageIcon           pieceImage;
+    //private JsonAPI jsonApi;
+    private FacadePiece facadePiece;
+    
     /**
      * The list of possible moves for this piece. Updated when actions involving
      * this piece occur. (created, moved, selected, etc)
@@ -55,18 +58,21 @@ public abstract class ChessGamePiece implements Cloneable{
      * @param pieceColor
      *            either GamePiece.WHITE, BLACK, or UNASSIGNED
      */
-		
-		  public ChessGamePiece(ChessGamePiece piece,ChessGameBoard board){
-					
-				}
+    public ChessGamePiece(ChessGamePiece piece,ChessGameBoard board){}
+    
+    public ChessGamePiece(ChessGameBoard board){}
     public ChessGamePiece(
         ChessGameBoard board,
         int row,
         int col,
         int pieceColor ){
         skipMoveGeneration = false;
+        //jsonApi = new JsonAPI();
+        facadePiece = new FacadePiece();
         this.pieceColor = pieceColor;
-        pieceImage = createImageByPieceType();
+        //pieceImage = createImageByPieceType();
+        // pieceImage = new PieceUI().render(this);
+        pieceImage = facadePiece.createImagePiece(this.pieceColor);
         pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
@@ -99,8 +105,16 @@ public abstract class ChessGamePiece implements Cloneable{
         boolean skipMoveGeneration ){
         this.skipMoveGeneration = skipMoveGeneration;
         this.pieceColor = pieceColor;
-        pieceImage = this.createImageByPieceType();
-        pieceRow = row;
+        //pieceImage = this.createImageByPieceType();
+        // jsonApi = new JsonAPI();
+                facadePiece = new FacadePiece();
+
+        this.pieceColor = pieceColor;
+        //pieceImage = createImageByPieceType();
+        // pieceImage = new PieceUI().render(this);
+       // pieceImage = jsonApi.createImageByPieceType(this.pieceColor);
+       pieceImage = facadePiece.createImagePiece(this.pieceColor);
+       pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
             board.getCell(row, col).setPieceOnSquare( this );
@@ -739,5 +753,8 @@ public abstract class ChessGamePiece implements Cloneable{
     public String toString(){
         return this.getClass().toString().substring( 6 ) + " @ (" + pieceRow
             + ", " + pieceColumn + ")";
+    }
+     public void setPieceColor(int pieceColor) {
+        this.pieceColor = pieceColor;
     }
 }
