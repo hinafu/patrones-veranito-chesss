@@ -24,7 +24,10 @@ public class ChessPanel
     public ChessPanel(){
         this.setLayout( new BorderLayout() );
         menuBar = new ChessMenuBar();
-        gameBoard = new ChessGameBoard();
+        gameBoard = ChessGameBoard.getInstance();
+				System.out.println("Creación de gameBoard");
+				System.out.println(gameBoard.hashCode());
+				System.out.println("---------------------");
         gameLog = new ChessGameLog();
         playerOneGraveyard = new ChessGraveyard( "Player 1's graveyard" );
         playerTwoGraveyard = new ChessGraveyard( "Player 2's graveyard" );
@@ -34,7 +37,7 @@ public class ChessPanel
         this.add( playerOneGraveyard, BorderLayout.WEST );
         this.add( playerTwoGraveyard, BorderLayout.EAST );
         this.setPreferredSize( new Dimension( 800, 600 ) );
-        gameEngine = new ChessGameEngine( gameBoard ); // start the game
+        gameEngine = new ChessGameEngine(); // start the game
     }
     // ----------------------------------------------------------
     /**

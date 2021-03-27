@@ -44,8 +44,9 @@ public class Pawn
      * @return boolean true if the move was successful, false otherwise
      */
     @Override
-    public boolean move( ChessGameBoard board, int row, int col ){
-        if ( super.move( board, row, col ) ){
+    public boolean move( int row, int col ){
+				ChessGameBoard board = ChessGameBoard.getInstance();
+        if ( super.move( row, col ) ){
             notMoved = false;
             possibleMoves = calculatePossibleMoves( board );
             if ( ( getColorOfPiece() == ChessGamePiece.BLACK && row == 7 )

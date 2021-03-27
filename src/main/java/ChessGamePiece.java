@@ -461,8 +461,9 @@ public abstract class ChessGamePiece{
      *            the column to move to
      * @return boolean true if the move was successful, false otherwise
      */
-    public boolean move( ChessGameBoard board, int row, int col ){
-        if ( canMove( board, row, col ) ){
+    public boolean move( int row, int col ){
+				ChessGameBoard board = ChessGameBoard.getInstance();
+        if ( canMove( row, col ) ){
             String moveLog = this.toString() + " -> ";
             board.clearCell( pieceRow, pieceColumn );
             if ( isEnemy( board, row, col ) ){
@@ -486,7 +487,7 @@ public abstract class ChessGamePiece{
             ( (ChessPanel)board.getParent() ).getGameLog().addToLog( moveLog );
             board.getCell( row, col ).setPieceOnSquare( this );
             if ( !skipMoveGeneration ){
-                updatePossibleMoves( board );
+                updatePossibleMoves();
             }
             return true;
         }
@@ -507,10 +508,11 @@ public abstract class ChessGamePiece{
      *            the column to move to
      * @return boolean true if this piece can make the move, false if it cannot
      */
-    public boolean canMove( ChessGameBoard board, int row, int col ){
-        updatePossibleMoves( board );
+    public boolean canMove( int row, int col ){
+				ChessGameBoard board = ChessGameBoard.getInstance();
+        updatePossibleMoves();
         if ( possibleMoves.indexOf( row + "," + col ) > -1 ){
-            return testMoveForKingSafety( board, row, col );
+            return testMoveForKingSafety( row, col );
         }
         return false;
     }
@@ -527,10 +529,10 @@ public abstract class ChessGamePiece{
      * @return boolean true if the move is safe, false if it is not
      */
     private boolean testMoveForKingSafety(
-        ChessGameBoard board,
         int row,
         int col ){
-        updatePossibleMoves( board );
+				ChessGameBoard board = ChessGameBoard.getInstance();
+        updatePossibleMoves();
         ChessGamePiece oldPieceOnOtherSquare =
             board.getCell( row, col ).getPieceOnSquare();
         ChessGameEngine engine =
@@ -557,7 +559,8 @@ public abstract class ChessGamePiece{
      * @param board
      *            the board to calculate moves on
      */
-    protected void updatePossibleMoves( ChessGameBoard board ){
+    protected void updatePossibleMoves(){
+				ChessGameBoard board = ChessGameBoard.getInstance();
         possibleMoves = calculatePossibleMoves( board );
     }
     // ----------------------------------------------------------
@@ -598,14 +601,15 @@ public abstract class ChessGamePiece{
      * @param board
      *            The board to show the move locations on
      */
-    public void showLegalMoves( ChessGameBoard board ){
-        updatePossibleMoves( board );
+    public void showLegalMoves(){
+				ChessGameBoard board = ChessGameBoard.getInstance();
+        updatePossibleMoves();
         if ( isPieceOnScreen() ){
             for ( String locStr : possibleMoves ){
                 String[] currCoords = locStr.split( "," );
                 int row = Integer.parseInt( currCoords[0] );
                 int col = Integer.parseInt( currCoords[1] );
-                if ( canMove( board, row, col ) ) // only show legal moves
+                if ( canMove(row, col ) ) // only show legal moves
                 {
                     if ( isEnemy( board, row, col ) ){
                         board.getCell( row, col ).setBackground(
@@ -627,14 +631,15 @@ public abstract class ChessGamePiece{
      *            the game board to check
      * @return true if there are legal moves, false if there are not
      */
-    public boolean hasLegalMoves( ChessGameBoard board ){
-        updatePossibleMoves( board );
+    public boolean hasLegalMoves(){
+				ChessGameBoard board = ChessGameBoard.getInstance();
+        updatePossibleMoves();
         if ( isPieceOnScreen() ){
             for ( String locStr : possibleMoves ){
                 String[] currCoords = locStr.split( "," );
                 int row = Integer.parseInt( currCoords[0] );
                 int col = Integer.parseInt( currCoords[1] );
-                if ( canMove( board, row, col ) ) // only show legal moves
+                if ( canMove( row, col ) ) // only show legal moves
                 {
                     return true;
                 }
@@ -697,21 +702,22 @@ public abstract class ChessGamePiece{
      * @param board the game board to check on
      * @return ArrayList<GamePiece> the list of attackers
      */
-    public ArrayList<ChessGamePiece> getCurrentAttackers( ChessGameBoard board ){
+    public ArrayList<ChessGamePiece> getCurrentAttackers(){
+				ChessGameBoard board = ChessGameBoard.getInstance();
         ArrayList<ChessGamePiece> attackers = new ArrayList<ChessGamePiece>();
         int enemyColor =
             ( this.getColorOfPiece() == ChessGamePiece.BLACK )
                 ? ChessGamePiece.WHITE
                 : ChessGamePiece.BLACK;
-        this.updatePossibleMoves( board );
+        this.updatePossibleMoves();
         for ( int i = 0; i < board.getCells().length; i++ ){
             for ( int j = 0; j < board.getCells()[0].length; j++ ){
                 ChessGamePiece currPiece =
                     board.getCell( i, j ).getPieceOnSquare();
                 if ( currPiece != null
                     && currPiece.getColorOfPiece() == enemyColor ){
-                    currPiece.updatePossibleMoves( board );
-                    if ( currPiece.canMove( board, pieceRow, pieceColumn ) ){
+                    currPiece.updatePossibleMoves();
+                    if ( currPiece.canMove( pieceRow, pieceColumn ) ){
                         attackers.add( currPiece );
                     }
                 }

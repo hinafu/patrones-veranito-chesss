@@ -27,10 +27,13 @@ public class ChessGameEngine{
      * @param board
      *            the reference ChessGameBoard
      */
-    public ChessGameEngine( ChessGameBoard board ){
+    public ChessGameEngine(){
         firstClick = true;
         currentPlayer = 1;
-        this.board = board;
+        this.board = ChessGameBoard.getInstance();
+				System.out.println("ChessGameEngine");
+				System.out.println(this.board.hashCode());
+				System.out.println("---------------");
         this.king1 = (King)board.getCell( 7, 3 ).getPieceOnSquare();
         this.king2 = (King)board.getCell( 0, 3 ).getPieceOnSquare();
         ( (ChessPanel)board.getParent() ).getGameLog().clearLog();
@@ -95,7 +98,7 @@ public class ChessGameEngine{
             return false;
         }
         for ( ChessGamePiece currPiece : pieces ){
-            if ( currPiece.hasLegalMoves( board ) ){
+            if ( currPiece.hasLegalMoves() ){
                 return true;
             }
         }
@@ -248,7 +251,7 @@ public class ChessGameEngine{
         if ( firstClick ){
             currentPiece = squareClicked.getPieceOnSquare();
             if ( selectedPieceIsValid() ){
-                currentPiece.showLegalMoves( board );
+                currentPiece.showLegalMoves();
                 squareClicked.setBackground( Color.GREEN );
                 firstClick = false;
             }
@@ -280,7 +283,6 @@ public class ChessGameEngine{
             {
                 boolean moveSuccessful =
                     currentPiece.move(
-                        board,
                         squareClicked.getRow(),
                         squareClicked.getColumn() );
                 if ( moveSuccessful ){

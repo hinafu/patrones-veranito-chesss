@@ -15,6 +15,7 @@ import java.awt.event.MouseAdapter;
  * @version 2010.11.17
  */
 public class ChessGameBoard extends JPanel{
+		private static ChessGameBoard instance;
     private BoardSquare[][] chessCells;
     private BoardListener   listener;
     // ----------------------------------------------------------
@@ -109,12 +110,19 @@ public class ChessGameBoard extends JPanel{
     /**
      * Create a new ChessGameBoard object.
      */
-    public ChessGameBoard(){
+    private ChessGameBoard(){
         this.setLayout( new GridLayout( 8, 8, 1, 1 ) );
         listener = new BoardListener();
         chessCells = new BoardSquare[8][8];
         initializeBoard();
     }
+		
+		public static ChessGameBoard getInstance() {
+			if (instance == null) {
+				instance = new ChessGameBoard();
+			}
+			return instance;
+		}
     // ----------------------------------------------------------
     /**
      * Clears the board of all items, including any pieces left over in the
