@@ -8,11 +8,6 @@
  *
  * @author Carloss
  */
-public class SubjectAdmin implements Subject{
-	
-	@Override
-  public void doOperation(String username) {
-    System.out.println("Soy un ADMIN");
-  }
-	
+public interface Server {
+    public void Accediendo(String usuario);
 }

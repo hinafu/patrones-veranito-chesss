@@ -1,6 +1,7 @@
 Queen.class
 Bishop.class
 ChessGameBoard$BoardListener.class
+RealServer.class
 ChessPanel.class
 PieceFactory.class
 ChessGameBoard.class
@@ -9,13 +10,12 @@ ChessGameLog.class
 ChessMenuBar.class
 ChessGraveyard.class
 King.class
+ProxyServer.class
 Knight.class
 BoardSquare.class
-SubjectProxy.class
 Pawn.class
 ChessMenuBar$MenuListener.class
-SubjectAdmin.class
 ChessMain.class
 Rook.class
 ChessGamePiece.class
-Subject.class
+Server.class
