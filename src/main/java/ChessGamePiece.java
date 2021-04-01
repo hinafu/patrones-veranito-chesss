@@ -17,7 +17,7 @@ public abstract class ChessGamePiece implements Cloneable {
     private boolean             skipMoveGeneration;
     private int                 pieceColor;
     private ImageIcon           pieceImage;
-    //private JsonAPI jsonApi;
+    private JsonAPI jsonApi;
     private FacadePiece facadePiece;
     
     /**
@@ -67,12 +67,18 @@ public abstract class ChessGamePiece implements Cloneable {
         int col,
         int pieceColor ){
         skipMoveGeneration = false;
-        //jsonApi = new JsonAPI();
-        facadePiece = new FacadePiece();
+        jsonApi = new JsonAPI();
         this.pieceColor = pieceColor;
         //pieceImage = createImageByPieceType();
+        facadePiece = new FacadePiece();
         // pieceImage = new PieceUI().render(this);
+        //pieceImage = jsonApi.createImageByPieceType(this.pieceColor);
+        
+        // Haciendo uso del patron facade:
+        // En este caso facadePiece funcionada como nuestra fachade
+        // y sera el ,el que se comunicara con la libreria externa.
         pieceImage = facadePiece.createImagePiece(this.pieceColor);
+
         pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
@@ -105,16 +111,16 @@ public abstract class ChessGamePiece implements Cloneable {
         boolean skipMoveGeneration ){
         this.skipMoveGeneration = skipMoveGeneration;
         this.pieceColor = pieceColor;
-        //pieceImage = this.createImageByPieceType();
-        // jsonApi = new JsonAPI();
-                facadePiece = new FacadePiece();
+        facadePiece = new FacadePiece();
 
+        //pieceImage = this.createImageByPieceType();
+        jsonApi = new JsonAPI();
         this.pieceColor = pieceColor;
         //pieceImage = createImageByPieceType();
         // pieceImage = new PieceUI().render(this);
-       // pieceImage = jsonApi.createImageByPieceType(this.pieceColor);
-       pieceImage = facadePiece.createImagePiece(this.pieceColor);
-       pieceRow = row;
+        //pieceImage = jsonApi.createImageByPieceType(this.pieceColor);
+        pieceImage = facadePiece.createImagePiece(this.pieceColor);
+        pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
             board.getCell(row, col).setPieceOnSquare( this );
