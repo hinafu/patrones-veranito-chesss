@@ -1,5 +1,6 @@
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import java.util.Scanner;
 // -------------------------------------------------------------------------
 /**
  * Represents a Pawn game piece. Unique in that it can move two locations on its
@@ -50,11 +51,25 @@ public class Pawn
             possibleMoves = calculatePossibleMoves( board );
             if ( ( getColorOfPiece() == ChessGamePiece.BLACK && row == 7 )
                 || ( getColorOfPiece() == ChessGamePiece.WHITE && row == 0 ) ){ // pawn has reached the end of the board, promote it to queen
-                board.getCell( row, col ).setPieceOnSquare( new Queen(
-                    board,
-                    row,
-                    col,
-                    getColorOfPiece() ) );
+                Scanner sc = new Scanner(System.in);
+								System.out.println("Seleccione su pieza");		
+								String pieza = sc.nextLine();
+								switch(pieza) {
+									case "Knight":
+										board.getCell( row, col ).setPieceOnSquare( new Knight(board,row,col,getColorOfPiece() ) );
+										break;
+									case "Rook":
+										board.getCell( row, col ).setPieceOnSquare( new Rook(board,row,col,getColorOfPiece() ) );
+										break;
+									case "Bishop":
+										board.getCell( row, col ).setPieceOnSquare( new Bishop(board,row,col,getColorOfPiece() ) );
+										break;
+									case "Queen":
+										board.getCell( row, col ).setPieceOnSquare( new Queen(board,row,col,getColorOfPiece() ) );
+										break;
+									default:
+										System.out.println("pieza no valida");
+								}
             }
             return true;
         }
