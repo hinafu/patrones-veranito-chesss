@@ -68,44 +68,19 @@ public class ChessGameBoard extends JPanel{
             				"initialized. This square cannot be cleared." );
         }
     }
-    // ----------------------------------------------------------
-    /**
-     * Gets all the white game pieces on the board.
-     *
-     * @return ArrayList<GamePiece> the pieces
-     */
-    public ArrayList<ChessGamePiece> getAllWhitePieces(){
-        ArrayList<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
-        for ( int i = 0; i < 8; i++ ){
-            for ( int j = 0; j < 8; j++ ){
-                if ( chessCells[i][j].getPieceOnSquare() != null
-                    && chessCells[i][j].getPieceOnSquare().getColorOfPiece() ==
-                        ChessGamePiece.WHITE ){
-                    whitePieces.add( chessCells[i][j].getPieceOnSquare() );
-                }
-            }
-        }
-        return whitePieces;
-    }
-    // ----------------------------------------------------------
-    /**
-     * Gets all the black pieces on the board
-     *
-     * @return ArrayList<GamePiece> the pieces
-     */
-    public ArrayList<ChessGamePiece> getAllBlackPieces(){
-        ArrayList<ChessGamePiece> blackPieces = new ArrayList<ChessGamePiece>();
-        for ( int i = 0; i < 8; i++ ){
-            for ( int j = 0; j < 8; j++ ){
-                if ( chessCells[i][j].getPieceOnSquare() != null
-                    && chessCells[i][j].getPieceOnSquare().getColorOfPiece() ==
-                        ChessGamePiece.BLACK ){
-                    blackPieces.add( chessCells[i][j].getPieceOnSquare() );
-                }
-            }
-        }
-        return blackPieces;
-    }
+		public ArrayList<ChessGamePiece> getAllPieces(int color) {
+			ArrayList<ChessGamePiece> pieces = new ArrayList<ChessGamePiece>();
+			for ( int i = 0; i < 8; i++ ){
+					for ( int j = 0; j < 8; j++ ){
+							if ( chessCells[i][j].getPieceOnSquare() != null
+									&& chessCells[i][j].getPieceOnSquare().getColorOfPiece() ==
+											color ){
+									pieces.add( chessCells[i][j].getPieceOnSquare() );
+							}
+					}
+			}
+			return pieces;
+		}
     // ----------------------------------------------------------
     /**
      * Create a new ChessGameBoard object.

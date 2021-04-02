@@ -88,10 +88,10 @@ public class ChessGameEngine{
     public boolean playerHasLegalMoves( int playerNum ){
         ArrayList<ChessGamePiece> pieces;
         if ( playerNum == 1 ){
-            pieces = board.getAllWhitePieces();
+            pieces = board.getAllPieces(ChessGamePiece.WHITE);
         }
         else if ( playerNum == 2 ){
-            pieces = board.getAllBlackPieces();
+            pieces = board.getAllPieces(ChessGamePiece.BLACK);
         }
         else
         {
@@ -228,8 +228,8 @@ public class ChessGameEngine{
         }
         if ( ( !king1.isChecked( board ) && !playerHasLegalMoves( 1 ) )
             || ( !king2.isChecked( board ) && !playerHasLegalMoves( 2 ) )
-            || ( board.getAllWhitePieces().size() == 1 &&
-                board.getAllBlackPieces().size() == 1 ) ) // stalemate
+            || ( board.getAllPieces(ChessGamePiece.WHITE).size() == 1 &&
+                board.getAllPieces(ChessGamePiece.BLACK).size() == 1 ) ) // stalemate
         {
             return -1;
         }
