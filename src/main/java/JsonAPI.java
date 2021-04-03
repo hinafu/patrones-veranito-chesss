@@ -19,33 +19,31 @@ import org.json.simple.parser.ParseException;
  * @author Ricardo
  */
 public class JsonAPI {
-
     Object list;
     String img;
     String _c;
     JSONParser p;
 
-    public JsonAPI(){
-    
-
+    public JsonAPI() {
     }
-public ImageIcon createImageByPieceType(int pieceColor) {
-		JSONParser p = new JSONParser();
-		StackTraceElement[] trace = Thread.currentThread().getStackTrace();
-		String _c = trace[4].getClassName();
-		String img = "chessImages/default-Unassigned.gif";
-		try {
-			Object obj = p.parse(new FileReader(getClass().getResource("colordata/colores.json").getFile()));
-                        JSONObject jsonObject = (JSONObject) obj;
-			                 System.out.println(jsonObject);
-                        Object list = jsonObject.get(_c);
-			JSONObject data = (JSONObject) list;
 
-			img = String.valueOf(data.get(String.valueOf(pieceColor)));
-		} catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+    public ImageIcon createImageByPieceType(int pieceColor) {
+        JSONParser p = new JSONParser();
+        StackTraceElement[] trace = Thread.currentThread().getStackTrace();
+        String _c = trace[4].getClassName();
+        String img = "chessImages/default-Unassigned.gif";
+        try {
+            Object obj = p.parse(new FileReader(getClass().getResource("colordata/colores.json").getFile()));
+            JSONObject jsonObject = (JSONObject) obj;
+            System.out.println(jsonObject);
+            Object list = jsonObject.get(_c);
+            JSONObject data = (JSONObject) list;
 
-		return new ImageIcon(getClass().getResource(img));
-	}
+            img = String.valueOf(data.get(String.valueOf(pieceColor)));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return new ImageIcon(getClass().getResource(img));
+    }
 }

@@ -25,6 +25,7 @@ public class Bishop extends ChessGamePiece{
     
 	public Bishop( ChessGameBoard board, int row, int col, int color ){
 		super( board, row, col, color );
+                
 	}
 
         Bishop(ChessGameBoard board) {

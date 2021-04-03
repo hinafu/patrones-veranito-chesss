@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class King
     extends ChessGamePiece{
+        
 	private static King kingInstance;
     // ----------------------------------------------------------
     /**
@@ -31,7 +32,7 @@ public class King
     }
     public King( ChessGameBoard board, int row, int col, int color ){
         super( board, row, col, color, false );
-    }
+            }
 
     King(ChessGameBoard board) {
         super(board);

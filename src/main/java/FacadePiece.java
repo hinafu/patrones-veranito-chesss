@@ -19,8 +19,7 @@ public class FacadePiece {
             jsonApi = new JsonAPI();
         }
         public ImageIcon createImagePiece(int typePiece){
-            System.out.println(typePiece);
-           ImageIcon prueba = jsonApi.createImageByPieceType(typePiece);
-           return prueba;
+           ImageIcon imagenIcon = jsonApi.createImageByPieceType(typePiece);
+           return imagenIcon;
         }
 }

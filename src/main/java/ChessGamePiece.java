@@ -71,13 +71,14 @@ public abstract class ChessGamePiece implements Cloneable {
         this.pieceColor = pieceColor;
         //pieceImage = createImageByPieceType();
         facadePiece = new FacadePiece();
+         pieceImage = facadePiece.createImagePiece(this.pieceColor);
+         
         // pieceImage = new PieceUI().render(this);
-        //pieceImage = jsonApi.createImageByPieceType(this.pieceColor);
         
         // Haciendo uso del patron facade:
-        // En este caso facadePiece funcionada como nuestra fachade
+        // En este caso facadePiece funcionara como nuestra fachade
         // y sera el ,el que se comunicara con la libreria externa.
-        pieceImage = facadePiece.createImagePiece(this.pieceColor);
+       
 
         pieceRow = row;
         pieceColumn = col;
