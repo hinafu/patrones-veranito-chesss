@@ -11,7 +11,7 @@
 import javax.swing.*;
 
 
-public class RealServer{
+public class RealServer implements Server{ 
     private int port;
     private String host;
     
@@ -23,7 +23,7 @@ public class RealServer{
 
     public void Accediendo(String usuario){
 				System.out.println("Accediendo "+host+": USUARIO => "+usuario);
-				JFrame frame = new JFrame( "YetAnotherChessGame 1.0  -- PLAN PRO" );
+				JFrame frame = new JFrame( "YetAnotherChessGame 1.0  -- VERSION PRO" );
 				frame.setBounds(0, 0, 600, 650);
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.getContentPane().add( new ChessPanel().getInstanciar() );

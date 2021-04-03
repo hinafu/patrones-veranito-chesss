@@ -27,7 +27,7 @@ public class ProxyServer implements Server {
             }
             srv.Accediendo(usuario);
         }else{
-								System.out.println("No Puede Acceder a Este Plan.");
+								System.out.println("No Puede Acceder a esta VERSION.");
 								
         }
     }

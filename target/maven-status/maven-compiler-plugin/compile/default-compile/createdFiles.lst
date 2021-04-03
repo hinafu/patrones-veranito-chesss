@@ -1,11 +1,16 @@
+ServerObserver$1.class
 Queen.class
 Bishop.class
 ChessGameBoard$BoardListener.class
 RealServer.class
 ChessPanel.class
 PieceFactory.class
+Cliente.class
+Cliente$1.class
 ChessGameBoard.class
 ChessGameEngine.class
+ChessMain$1.class
+ServerObserver$ClientListener.class
 ChessGameLog.class
 ChessMenuBar.class
 ChessGraveyard.class
@@ -17,5 +22,7 @@ Pawn.class
 ChessMenuBar$MenuListener.class
 ChessMain.class
 Rook.class
+NullBishop.class
 ChessGamePiece.class
 Server.class
+ServerObserver.class
