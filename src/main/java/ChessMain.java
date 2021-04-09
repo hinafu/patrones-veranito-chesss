@@ -18,11 +18,18 @@ public class ChessMain{
      */
     public static void main( String[] args ){
 			
-			  java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ServerObserver().setVisible(true);
-            }
-        });
+//			  java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ServerObserver().setVisible(true);
+//            }
+//        });
+
+ ServerObserver2 formulario1 = new ServerObserver2();
+  formulario1.setBounds(0,0,400,150);
+  formulario1.setVisible(true);
+  formulario1.setResizable(false);
+  formulario1.setLocationRelativeTo(null);
+		
 				
 								
 

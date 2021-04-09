@@ -65,7 +65,16 @@ public class Cliente extends javax.swing.JFrame implements ServerObserver.Client
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
+		private void msjResultadoKeyPressed(java.awt.event.KeyEvent evt) {                                     
+        // TODO add your handling code here:
+				
+//				 if(evt.keyPressed){
+//						System.out.println("PRESIONO");
+//				}
 
+	msjResultado.setText("Estoy presionando la techa");
+    } 
+		
     /**
      * @param args the command line arguments
      */

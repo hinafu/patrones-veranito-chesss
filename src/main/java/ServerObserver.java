@@ -99,19 +99,43 @@ public class ServerObserver extends javax.swing.JFrame {
             nList.add(cliente);
                     
         }
+				ChessPanel chessP=new ChessPanel().getInstanciar();
 				
-				for(ClientListener clientList: nList){
-            clientList.onMessage("Prueba : Jugador 1 => Pierde un caballo");
-        }
 				
 				JFrame frame = new JFrame( "YetAnotherChessGame 1.0 " );
 				frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-				frame.getContentPane().add( new ChessPanel().getInstanciar() );
+				frame.getContentPane().add(chessP);
 				frame.pack();
 				frame.setVisible( true );
 				this.setVisible(false);
 				
+				
+				
+				ChessGameLog gameEngine=chessP.getGameLog();
+				System.out.println(gameEngine.getLastLog());
+				
+				
+				ChessGameEngine ChessGE=chessP.getGameEngine();
+				System.out.println(ChessGE.mostrar());
+				
+				for(ClientListener clientList: nList){
+            clientList.onMessage(gameEngine.getLastLog()+"\n \n"+ChessGE.mostrar());
+        }
+				
+//				Keylistener eventoTeclado=new KeyListener();
+//				public void keyPressed(keyEvent ke){
+//					clientList.onMessage("keyPressed");
+//				}
+//				campoCliente.addKeyListern(eventoTeclado);
+				
     }//GEN-LAST:event_btnCreateActionPerformed
+		
+		
+		private void btnCreateMousePressed(java.awt.event.MouseEvent evt) {
+			System.out.println("presionando");
+    } 
+		
+		
 		
 		public interface ClientListener{
         void  onMessage(String mensaje);

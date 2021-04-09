@@ -66,6 +66,10 @@ public class ChessGameEngine{
         ( (ChessPanel)board.getParent() ).getGameLog().addToLog(
                 "It is now Player " + currentPlayer + "'s turn." );
     }
+		
+		public String mostrar(){
+			return "It is now Player " + currentPlayer + "'s turn.";
+		}
     // ----------------------------------------------------------
     /**
      * Gets the current player. Used for determining the turn.

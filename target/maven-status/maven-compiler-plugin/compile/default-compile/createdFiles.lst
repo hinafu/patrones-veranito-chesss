@@ -9,7 +9,7 @@ Cliente.class
 Cliente$1.class
 ChessGameBoard.class
 ChessGameEngine.class
-ChessMain$1.class
+ClienteObserver.class
 ServerObserver$ClientListener.class
 ChessGameLog.class
 ChessMenuBar.class
@@ -17,7 +17,9 @@ ChessGraveyard.class
 King.class
 ProxyServer.class
 Knight.class
+ClientListener.class
 BoardSquare.class
+ServerObserver2.class
 Pawn.class
 ChessMenuBar$MenuListener.class
 ChessMain.class
