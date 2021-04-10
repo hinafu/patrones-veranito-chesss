@@ -17,6 +17,22 @@ public class ChessMain{
      *            command line arguments, not used
      */
     public static void main( String[] args ){
+				ServerObserver2 PatronObserver = new ServerObserver2();
+				PatronObserver.setBounds(0,0,400,150);
+				PatronObserver.setVisible(true);
+				PatronObserver.setResizable(false);
+				PatronObserver.setLocationRelativeTo(null);
+		
+		 }
+}		
+				
+				
+				
+				
+				
+				
+				
+				
 			
 //			  java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
@@ -24,12 +40,7 @@ public class ChessMain{
 //            }
 //        });
 
- ServerObserver2 formulario1 = new ServerObserver2();
-  formulario1.setBounds(0,0,400,150);
-  formulario1.setVisible(true);
-  formulario1.setResizable(false);
-  formulario1.setLocationRelativeTo(null);
-		
+
 				
 								
 
@@ -62,5 +73,4 @@ public class ChessMain{
 //            break;
 //            
 //      }
-    }
-}
+
