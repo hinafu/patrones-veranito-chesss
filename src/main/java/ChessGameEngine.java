@@ -301,10 +301,10 @@ public class ChessGameEngine{
                         JOptionPane.ERROR_MESSAGE );
                 }
                 firstClick = true;*/
-								String respuesta = JOptionPane.showInputDialog(
+								String Command = JOptionPane.showInputDialog(
                         null,
                         "Estas seguro de hacer ese movimiento?" );
-										switch(respuesta){
+										switch(Command){
 											case "Yes":
 												boolean moveSuccessful =
 												currentPiece.move(
