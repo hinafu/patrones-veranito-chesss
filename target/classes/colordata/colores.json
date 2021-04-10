@@ -28,5 +28,5 @@
 		"-1": "chessImages/default-Unassigned.gif",
 		"0": "chessImages/BlackPawn.gif",
 		"1": "chessImages/WhitePawn.gif"
-	},
+	}
 }
