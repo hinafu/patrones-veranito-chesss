@@ -8,7 +8,7 @@
  *
  * @author Ricardo
  */
-public interface AbstractFactory {
-    iteratorChess getPiecesClassic(String piece);
-    //factoryModern getPiecesModern(String piece);
+public interface Filter {
+    public void execute(String usuario,String password);
+    public void redirectFrame();
 }

@@ -17,10 +17,16 @@ public class ChessMain{
      *            command line arguments, not used
      */
     public static void main( String[] args ){
+      NewJFrame frame = new NewJFrame();
+        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        frame.setVisible( true );
+      
+        /*
         JFrame frame = new JFrame( "YetAnotherChessGame 1.0" );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         frame.getContentPane().add( new ChessPanel() );
         frame.pack();
         frame.setVisible( true );
-    }
+        */
+}
 }
