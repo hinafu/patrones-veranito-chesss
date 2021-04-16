@@ -1,35 +1,35 @@
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Ricardo
  */
-public class AuthenticationFilter implements Filter{
+public class AuthenticationFilter implements Filter {
 
     @Override
-    public void execute(String usuario,String password ) {
+    public void execute(String usuario, String password) {
         try {
-            System.out.println("Autenticando");
-            if(usuario=="admin" && password =="admin"){
-                System.out.println("ENTRO");
-            }else{
-                 Exception e = new Exception("Usuario o password incorrecto");
-			         throw e;
+
+            if (usuario.matches("^[A-Za-z0-9_.]+[@][A-Za-z.]+$")) {
+                System.out.println("valido");
+            } else {
+               JOptionPane.showMessageDialog(null, "email not valid");
+                
+           
             }
-        
+
         } catch (Exception e) {
-            System.out.println("eee"+e);
-            
+            System.out.println("eee" + e);
+
         }
     }
 
-    @Override
-    public void redirectFrame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

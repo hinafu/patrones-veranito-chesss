@@ -21,8 +21,6 @@ public class FilterChain {
    }
 
    public void execute(String usuario,String password){
-       System.out.println("filters:");
-       System.out.println(filters);
       for (Filter filter : filters) {
          filter.execute(usuario,password);
       }

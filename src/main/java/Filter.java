@@ -10,5 +10,5 @@
  */
 public interface Filter {
     public void execute(String usuario,String password);
-    public void redirectFrame();
+
 }
