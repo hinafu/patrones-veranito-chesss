@@ -1,4 +1,7 @@
 import java.awt.Component;
+import java.awt.Dimension;
+import static java.awt.Frame.ICONIFIED;
+import java.awt.Toolkit;
 import java.awt.event.*;
 import javax.swing.*;
 // -------------------------------------------------------------------------
@@ -17,10 +20,10 @@ public class ChessMenuBar
      * Create a new ChessMenuBar object.
      */
     public ChessMenuBar(){
-        String[] menuCategories = { "File", "Options", "Help" };
+        String[] menuCategories = { "File", "Options", "Help","Admin" };
         String[] menuItemLists =
         { "New game/restart,Exit", "Toggle graveyard,Toggle game log",
-          "About" };
+          "About","Acceder" };
         for ( int i = 0; i < menuCategories.length; i++ ){
             JMenu currMenu = new JMenu( menuCategories[i] );
             String[] currMenuItemList = menuItemLists[i].split( "," );
@@ -63,6 +66,9 @@ public class ChessMenuBar
             }
             else if ( buttonName.equals( "Exit" ) ){
                 exitHandler();
+            }
+						else if ( buttonName.equals( "Acceder" ) ){
+                RegistrarGanador();
             }
             else
             {
@@ -118,5 +124,14 @@ public class ChessMenuBar
         ( (ChessPanel)this.getParent() ).getGameLog().setVisible(
             !( (ChessPanel)this.getParent() ).getGameLog().isVisible() );
         ( (ChessPanel)this.getParent() ).revalidate();
+    }
+		private void RegistrarGanador(){			
+			this.restartHandler();
+			this.exitHandler();
+      AdminAuth Administrador = new AdminAuth();
+			Administrador.setTitle("Login Administrador ");
+			Administrador.setBounds(400,300,300,300);
+			Administrador.setVisible(true);
+			Administrador.setResizable(false);
     }
 }

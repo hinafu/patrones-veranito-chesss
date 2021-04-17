@@ -17,18 +17,49 @@ public class ChessMain{
      *            command line arguments, not used
      */
     public static void main( String[] args ){
-				ServerObserver2 PatronObserver = new ServerObserver2();
-				PatronObserver.setBounds(0,0,400,150);
-				PatronObserver.setVisible(true);
-				PatronObserver.setResizable(false);
-				PatronObserver.setLocationRelativeTo(null);
-		
-		 }
+				ChessPanel chessP=new ChessPanel().getInstanciar();				
+				JFrame frame = new JFrame( "YetAnotherChessGame 1.0 " );
+				frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+				frame.getContentPane().add(chessP);
+				frame.pack();
+				frame.setVisible( true );
+				
+//				AdminPanel panelAdmin = new AdminPanel();
+//				panelAdmin.setTitle("Login Administrador ");
+//				panelAdmin.setBounds(0,0,400,300);
+//				panelAdmin.setVisible(true);
+//				panelAdmin.setResizable(false);
+		}
 }		
+//			Administrador.setLocationRelativeTo(150,150);	
+			
+////			LoginAdmin admin=new LoginAdmin();
+//System.out.println("className.methodName()");
+//			admin.setTitle("Admin ");
+//			admin.setBounds(0,0,300,300);
+//			admin.setResizable(false);
+//				admin.setLocationRelativeTo(null);	
+//			admin.setVisible(true);
+			
+//			ServerObserver2 PatronObserver = new ServerObserver2();
+//				PatronObserver.setBounds(0,0,400,150);
+//				PatronObserver.setVisible(true);
+//				PatronObserver.setResizable(false);
+//				PatronObserver.setLocationRelativeTo(null);	
+
+			
+
+
+		
+
 				
 				
 				
-				
+			//				ServerObserver2 PatronObserver = new ServerObserver2();
+//				PatronObserver.setBounds(0,0,400,150);
+//				PatronObserver.setVisible(true);
+//				PatronObserver.setResizable(false);
+//				PatronObserver.setLocationRelativeTo(null);	
 				
 				
 				
