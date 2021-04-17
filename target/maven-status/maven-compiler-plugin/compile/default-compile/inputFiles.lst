@@ -1,4 +1,5 @@
 G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGameEngine.java
+G:\patrones\veranito-chesss\veranito-chess\src\main\java\Mediator.java
 G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessMain.java
 G:\patrones\veranito-chesss\veranito-chess\src\main\java\Rook.java
 G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGamePiece.java
@@ -12,4 +13,5 @@ G:\patrones\veranito-chesss\veranito-chess\src\main\java\BoardSquare.java
 G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGameBoard.java
 G:\patrones\veranito-chesss\veranito-chess\src\main\java\Pawn.java
 G:\patrones\veranito-chesss\veranito-chess\src\main\java\Bishop.java
+G:\patrones\veranito-chesss\veranito-chess\src\main\java\render.java
 G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessPanel.java
