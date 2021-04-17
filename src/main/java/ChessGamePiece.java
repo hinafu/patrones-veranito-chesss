@@ -17,6 +17,9 @@ public abstract class ChessGamePiece{
     private boolean             skipMoveGeneration;
     private int                 pieceColor;
     private ImageIcon           pieceImage;
+		
+		IMovementPieceDAO movementDAO = new MovementPieceDAO();
+
     /**
      * The list of possible moves for this piece. Updated when actions involving
      * this piece occur. (created, moved, selected, etc)
@@ -466,6 +469,13 @@ public abstract class ChessGamePiece{
         if ( canMove( row, col ) ){
             String moveLog = this.toString() + " -> ";
             board.clearCell( pieceRow, pieceColumn );
+						System.out.println("Posición Inicial");
+						System.out.println("(" + this.pieceRow + ", " + this.pieceColumn + ")");
+						IMovementPieceDAO movementDAO = new MovementPieceDAO();
+						movementDAO.create(new MovementPieceDTO("", this.getColorOfPiece(), this.pieceRow, this.pieceColumn));
+						System.out.println("Posición Final");
+						System.out.println("(" + row + ", " + col + ")");
+						movementDAO.create(new MovementPieceDTO("", this.getColorOfPiece(), row, col));
             if ( isEnemy( board, row, col ) ){
                 ChessGraveyard graveyard;
                 ChessGameEngine gameEngine =
@@ -632,7 +642,6 @@ public abstract class ChessGamePiece{
      * @return true if there are legal moves, false if there are not
      */
     public boolean hasLegalMoves(){
-				ChessGameBoard board = ChessGameBoard.getInstance();
         updatePossibleMoves();
         if ( isPieceOnScreen() ){
             for ( String locStr : possibleMoves ){
