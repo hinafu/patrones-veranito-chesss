@@ -51,6 +51,10 @@ public class ChessGameBoard extends JPanel{
         }
         return null;
     }
+		
+		private void setCell(int row, int col, BoardSquare square) {
+			this.chessCells[row][col] = square;
+		}
     // ----------------------------------------------------------
     /**
      * Clears the cell at 'row', 'col'.
@@ -59,7 +63,7 @@ public class ChessGameBoard extends JPanel{
      */
     public void clearCell(int row, int col){
         if ( validateCoordinates( row, col ) ){
-            chessCells[row][col].clearSquare();
+            this.getCell(row, col).clearSquare();
         }
         else
         {
@@ -72,14 +76,21 @@ public class ChessGameBoard extends JPanel{
 			ArrayList<ChessGamePiece> pieces = new ArrayList<ChessGamePiece>();
 			for ( int i = 0; i < 8; i++ ){
 					for ( int j = 0; j < 8; j++ ){
-							if ( chessCells[i][j].getPieceOnSquare() != null
-									&& chessCells[i][j].getPieceOnSquare().getColorOfPiece() ==
-											color ){
-									pieces.add( chessCells[i][j].getPieceOnSquare() );
+							ChessGamePiece piece = this.getPiece(i, j);
+							if (this.isThereAPiece(piece) && piece.getColorOfPiece() == color) {
+								pieces.add(piece);
 							}
 					}
 			}
 			return pieces;
+		}
+		
+		public ChessGamePiece getPiece(int row, int col) {
+			return this.getCell(row, col).getPieceOnSquare();
+		}
+		
+		public boolean isThereAPiece(ChessGamePiece piece) {
+			return piece != null;
 		}
     // ----------------------------------------------------------
     /**
@@ -110,23 +121,16 @@ public class ChessGameBoard extends JPanel{
         chessCells = new BoardSquare[8][8];
         this.removeAll();
         if ( getParent() instanceof ChessPanel ){
-            ( (ChessPanel)getParent() ).getGraveyard( 1 ).clearGraveyard();
-            ( (ChessPanel)getParent() ).getGraveyard( 2 ).clearGraveyard();
-            ( (ChessPanel)getParent() ).getGameLog().clearLog();
+						this.clearGraveyards();
+						this.clearLog();
         }
         for ( int i = 0; i < chessCells.length; i++ ){
             for ( int j = 0; j < chessCells[0].length; j++ ){
-                chessCells[i][j] = new BoardSquare( i, j, null );
-                if ( ( i + j ) % 2 == 0 ){
-                    chessCells[i][j].setBackground( Color.WHITE );
-                }
-                else
-                {
-                    chessCells[i][j].setBackground( Color.BLACK );
-                }
+								this.setCell(i, j, new BoardSquare( i, j, null ));
+								this.paintBoard(i, j);
                 if ( addAfterReset ){
-                    chessCells[i][j].addMouseListener( listener );
-                    this.add( chessCells[i][j] );
+										this.getCell(i, j).addMouseListener(listener);
+										this.add(this.getCell(i, j));
                 }
             }
         }
@@ -134,6 +138,16 @@ public class ChessGameBoard extends JPanel{
         //revalidate();
         // only the combination of these two calls work...*shrug*
     }
+		
+		private void clearGraveyards() {
+			( (ChessPanel)getParent() ).getGraveyard( 1 ).clearGraveyard();
+      ( (ChessPanel)getParent() ).getGraveyard( 2 ).clearGraveyard();
+		}
+		
+		private void clearLog() {
+			( (ChessPanel)getParent() ).getGameLog().clearLog();
+		}
+		
     /**
      * (Re)initializes this ChessGameBoard to its default layout with all 32
      * pieces added.
@@ -176,16 +190,10 @@ public class ChessGameBoard extends JPanel{
                 {
                     pieceToAdd = null;
                 }
-                chessCells[i][j] = new BoardSquare( i, j, pieceToAdd );
-                if ( ( i + j ) % 2 == 0 ){
-                    chessCells[i][j].setBackground( Color.WHITE );
-                }
-                else
-                {
-                    chessCells[i][j].setBackground( Color.BLACK );
-                }
-                chessCells[i][j].addMouseListener( listener );
-                this.add( chessCells[i][j] );
+								this.setCell(i, j, new BoardSquare( i, j, pieceToAdd ));
+								this.paintBoard(i, j);
+								this.getCell(i, j).addMouseListener( listener );
+								this.add(this.getCell(i, j));
             }
         }
     }
@@ -196,16 +204,25 @@ public class ChessGameBoard extends JPanel{
     public void clearColorsOnBoard(){
         for ( int i = 0; i < chessCells.length; i++ ){
             for ( int j = 0; j < chessCells[0].length; j++ ){
-                if ( ( i + j ) % 2 == 0 ){
-                    chessCells[i][j].setBackground( Color.WHITE );
-                }
-                else
-                {
-                    chessCells[i][j].setBackground( Color.BLACK );
-                }
+								this.paintBoard(i, j);
             }
         }
     }
+		
+		public void paintCell(int row, int col, Color color) {
+			this.getCell(row, col).setBackground( color );
+		}
+		
+		public void paintBoard(int row, int col) {
+			if ( ( row + col ) % 2 == 0 ){
+					this.paintCell(row, col, Color.WHITE);
+			}
+			else
+			{
+					this.paintCell(row, col, Color.BLACK);
+			}
+		}
+		
     /**
      * Listens for clicks on BoardSquares.
      *

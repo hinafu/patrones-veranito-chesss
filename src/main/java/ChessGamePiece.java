@@ -64,16 +64,19 @@ public abstract class ChessGamePiece{
         int col,
         int pieceColor ){
         skipMoveGeneration = false;
-        this.pieceColor = pieceColor;
-        //pieceImage = createImageByPieceType();
-				pieceImage = new PieceUI().render(this);
-        pieceRow = row;
-        pieceColumn = col;
-        if ( board.getCell( row, col ) != null ){
-            board.getCell( row, col ).setPieceOnSquare( this );
-        }
+				this.initPiece(board, row, col, pieceColor);
         possibleMoves = calculatePossibleMoves( board );
     }
+		
+		private void initPiece(ChessGameBoard board, int row, int col, int pieceColor) {
+			this.pieceColor = pieceColor;
+			pieceImage = new PieceUI().render(this);
+			pieceRow = row;
+			pieceColumn = col;
+			if ( board.getCell( row, col ) != null ){
+				board.getCell( row, col ).setPieceOnSquare( this );
+			}
+		}
     // ----------------------------------------------------------
     /**
      * Create a new GamePiece object. This constructor is used for special
@@ -98,14 +101,7 @@ public abstract class ChessGamePiece{
         int pieceColor,
         boolean skipMoveGeneration ){
         this.skipMoveGeneration = skipMoveGeneration;
-        this.pieceColor = pieceColor;
-        //pieceImage = this.createImageByPieceType();
-				pieceImage = new PieceUI().render(this);
-        pieceRow = row;
-        pieceColumn = col;
-        if ( board.getCell( row, col ) != null ){
-            board.getCell(row, col).setPieceOnSquare( this );
-        }
+				this.initPiece(board, row, col, pieceColor);
         if ( !this.skipMoveGeneration ){
             possibleMoves = calculatePossibleMoves( board );
         }
@@ -622,12 +618,11 @@ public abstract class ChessGamePiece{
                 if ( canMove(row, col ) ) // only show legal moves
                 {
                     if ( isEnemy( board, row, col ) ){
-                        board.getCell( row, col ).setBackground(
-                            Color.YELLOW );
+											board.paintCell(row, col, Color.YELLOW);
                     }
                     else
                     {
-                        board.getCell( row, col ).setBackground( Color.PINK );
+											board.paintCell(row, col, Color.PINK);
                     }
                 }
             }
