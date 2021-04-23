@@ -313,7 +313,7 @@ public class ChessGameEngine{
             if ( pieceOnSquare == null ||
                 !pieceOnSquare.equals( currentPiece ) ) // moving
             {
-                boolean moveSuccessful =
+               /* boolean moveSuccessful =
                     currentPiece.move(
                         board,
                         squareClicked.getRow(),
@@ -334,9 +334,9 @@ public class ChessGameEngine{
                             + "and try using your brain this time!",
                         "Invalid move",
                         JOptionPane.ERROR_MESSAGE );
-                }
+                }*/
                 firstClick = true;
-								/*String Command = JOptionPane.showInputDialog(
+								String Command = JOptionPane.showInputDialog(
                         null,
                         "Estas seguro de hacer ese movimiento?" );
 										switch(Command){
@@ -377,7 +377,7 @@ public class ChessGameEngine{
 												
 											default:
 												JOptionPane.showMessageDialog(null,"respuesta no válida");
-										}*/
+										}
             }
             else
             // user is just unselecting the current piece
