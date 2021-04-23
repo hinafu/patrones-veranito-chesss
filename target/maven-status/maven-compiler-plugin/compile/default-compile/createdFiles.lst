@@ -1,10 +1,12 @@
 Queen.class
 Bishop.class
 ChessGameBoard$BoardListener.class
+Director.class
 ChessPanel.class
 ChessGameBoard.class
 ChessGameEngine.class
 ChessGameLog.class
+Pieza.class
 ChessMenuBar.class
 ChessGraveyard.class
 King.class
@@ -12,6 +14,8 @@ Knight.class
 BoardSquare.class
 Pawn.class
 ChessMenuBar$MenuListener.class
+PiezaBuilder.class
 ChessMain.class
 Rook.class
+NuevaPiezaBuilder.class
 ChessGamePiece.class
