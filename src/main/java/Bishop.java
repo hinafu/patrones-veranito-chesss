@@ -46,5 +46,4 @@ public class Bishop extends ChessGamePiece{
 		allMoves.addAll( southWestMoves );
 		return allMoves;
 	}
-
 }

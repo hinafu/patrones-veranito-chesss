@@ -406,13 +406,11 @@ public abstract class ChessGamePiece extends render {
      *
      * @return ImageIcon the image that represents this game piece, different
      *         for each piece.
-     */
-    //public abstract ImageIcon createImageByPieceType();
-    /**
      * Return the ImageIcon as an Image.
      *
      * @return ImageIcon The ImageIcon as an Image
      */
+    public abstract ImageIcon createImageByPieceType();
     public ImageIcon getImage(){
         return pieceImage;
     }

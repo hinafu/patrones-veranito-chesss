@@ -10,8 +10,7 @@ import java.util.ArrayList;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public class Queen
-	extends ChessGamePiece{
+public class Queen extends ChessGamePiece{
 	// ----------------------------------------------------------
 	/**
 	 * Create a new Queen object.

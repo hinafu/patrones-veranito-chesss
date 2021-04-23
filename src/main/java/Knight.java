@@ -9,8 +9,7 @@ import java.util.ArrayList;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public class Knight
-	extends ChessGamePiece{
+public class Knight extends ChessGamePiece {
 	/**
 	 * Knight constructor for gamePiece
 	 *
@@ -90,4 +89,9 @@ public class Knight
 		}
 		return moves;
 	}
+
+		/* La clase para pintar le añadia una responsabilidad extra a la pieza del knight que ya tenia
+			los movimientos por eso se decidió removerla	*/
+		/* En su lugar se creo el package PieceUI que tiene la unica responsabilidad de pintar y que englobla
+			a todas las piezas*/
 }

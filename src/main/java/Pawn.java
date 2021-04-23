@@ -1,5 +1,6 @@
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 // -------------------------------------------------------------------------
 /**
  * Represents a Pawn game piece. Unique in that it can move two locations on its
@@ -11,8 +12,7 @@ import java.util.ArrayList;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public class Pawn
-	extends ChessGamePiece{
+public class Pawn extends ChessGamePiece{
 	private boolean notMoved;
 	// ----------------------------------------------------------
 	/**

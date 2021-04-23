@@ -301,6 +301,48 @@ public class ChessGameEngine{
                         JOptionPane.ERROR_MESSAGE );
                 }
                 firstClick = true;
+								/*String Command = JOptionPane.showInputDialog(
+                        null,
+                        "Estas seguro de hacer ese movimiento?" );
+										switch(Command){
+											case "Yes":
+												boolean moveSuccessful =
+												currentPiece.move(
+                        board,
+                        squareClicked.getRow(),
+                        squareClicked.getColumn() );
+													if ( moveSuccessful ){
+														checkGameConditions();
+													}
+													else
+													{
+														int row = squareClicked.getRow();
+														int col = squareClicked.getColumn();
+														JOptionPane.showMessageDialog(
+														squareClicked,
+														"The move to row " + ( row + 1 ) + " and column "
+                            + ( col + 1 )
+                            + " is either not valid or not legal "
+                            + "for this piece. Choose another move location, "
+                            + "and try using your brain this time!",
+														"Invalid move",
+														JOptionPane.ERROR_MESSAGE );
+													}
+													firstClick = true;
+													break;
+											
+											case "No":
+												JOptionPane.showMessageDialog(
+                        squareClicked,
+                        "Haga su movimiento"
+                            + "",
+                        "",
+                        JOptionPane.ERROR_MESSAGE );
+												break;
+												
+											default:
+												JOptionPane.showMessageDialog(null,"respuesta no válida");
+										}*/
             }
             else
             // user is just unselecting the current piece
