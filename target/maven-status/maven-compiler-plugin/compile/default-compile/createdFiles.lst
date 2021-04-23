@@ -3,9 +3,13 @@ Bishop.class
 ChessGameBoard$BoardListener.class
 Director.class
 ChessPanel.class
+NuevoMensaje.class
+Visitable.class
 ChessGameBoard.class
 ChessGameEngine.class
+Visitor.class
 ChessGameLog.class
+Visitante.class
 Pieza.class
 ChessMenuBar.class
 ChessGraveyard.class
@@ -14,6 +18,7 @@ Knight.class
 BoardSquare.class
 Pawn.class
 ChessMenuBar$MenuListener.class
+Mensaje.class
 PiezaBuilder.class
 ChessMain.class
 Rook.class
