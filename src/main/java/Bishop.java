@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public class Bishop extends ChessGamePiece{
+public class Bishop extends ChessGamePiece {
 	/**
 	 * Creates a new Bishop object.
 	 * 

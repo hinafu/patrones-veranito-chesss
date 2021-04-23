@@ -1,32 +1,31 @@
-
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.ImageIcon;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+ 
+import java.io.FileReader;
 
-/**
- *
- * @author larrysbarretot
- */
 public class PieceUI {
-	public ImageIcon render(ChessGamePiece piece) {
-		if ( piece.getColorOfPiece() == ChessGamePiece.WHITE ){
-			return new ImageIcon(
-				getClass().getResource("chessImages/White"+piece.getClass().getName()+".gif")
-			);			
+	public ImageIcon createImageByPieceType(int pieceColor) {
+		JSONParser p = new JSONParser();
+		StackTraceElement[] trace = Thread.currentThread().getStackTrace();
+		String _c = trace[3].getClassName();
+		String img = "chessImages/default-Unassigned.gif";
+		
+		try {
+			Object obj = p.parse(new FileReader(getClass().getResource("colordata/colores.json").getFile()));
+			JSONObject jsonObject = (JSONObject) obj;
+			Object list = jsonObject.get(_c);
+			JSONObject data = (JSONObject) list;
+			
+			img = String.valueOf(data.get(String.valueOf(pieceColor)));
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
-		else if ( piece.getColorOfPiece() == ChessGamePiece.BLACK ){
-			return new ImageIcon(
-				getClass().getResource("chessImages/Black"+piece.getClass().getName()+".gif")
-			);
-		}
-		else{
-			return new ImageIcon(
-				getClass().getResource("chessImages/Black"+piece.getClass().getName()+".gif")
-			);
-		}
+
+		return new ImageIcon(getClass().getResource(img));
 	}
 }

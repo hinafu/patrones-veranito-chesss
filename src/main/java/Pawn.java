@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public class Pawn extends ChessGamePiece{
+public class Pawn extends ChessGamePiece {
 	private boolean notMoved;
 	// ----------------------------------------------------------
 	/**

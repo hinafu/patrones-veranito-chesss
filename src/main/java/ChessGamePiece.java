@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public abstract class ChessGamePiece extends render {
+public abstract class ChessGamePiece {
     private boolean             skipMoveGeneration;
     private int                 pieceColor;
     private ImageIcon           pieceImage;
@@ -62,7 +62,7 @@ public abstract class ChessGamePiece extends render {
         int pieceColor ){
         skipMoveGeneration = false;
         this.pieceColor = pieceColor;
-        pieceImage = createImageByPieceType(pieceColor);
+        pieceImage = new PieceUI().createImageByPieceType(pieceColor);
         pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
@@ -95,7 +95,7 @@ public abstract class ChessGamePiece extends render {
         boolean skipMoveGeneration ){
         this.skipMoveGeneration = skipMoveGeneration;
         this.pieceColor = pieceColor;
-        pieceImage = this.createImageByPieceType(pieceColor);
+        pieceImage = new PieceUI().createImageByPieceType(pieceColor);
         pieceRow = row;
         pieceColumn = col;
         if ( board.getCell( row, col ) != null ){
@@ -410,7 +410,6 @@ public abstract class ChessGamePiece extends render {
      *
      * @return ImageIcon The ImageIcon as an Image
      */
-    public abstract ImageIcon createImageByPieceType();
     public ImageIcon getImage(){
         return pieceImage;
     }
