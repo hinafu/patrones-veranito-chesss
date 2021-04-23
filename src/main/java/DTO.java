@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
+import java.io.*;
+
 public class DTO {
 	protected List<Map<String, String>> data;
 	
@@ -29,6 +31,16 @@ public class DTO {
 			
 			this.data.add(aux);
 		});
+
+		try {
+			FileOutputStream fos = new FileOutputStream("users");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(this.data);
+			oos.close();
+			fos.close();
+		} catch(IOException ioe) {
+			ioe.printStackTrace();
+		}
 	}
 	
 	public List<Map<String, String>> getData() {
