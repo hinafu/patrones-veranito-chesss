@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
  * @version 2010.11.17
  */
 public class ChessGameEngine{
+		private static ChessGameEngine instance;
     private ChessGamePiece currentPiece;
     private boolean        firstClick;
     private int            currentPlayer;
@@ -27,7 +28,7 @@ public class ChessGameEngine{
      * @param board
      *            the reference ChessGameBoard
      */
-    public ChessGameEngine(){
+    private ChessGameEngine(){
         firstClick = true;
         currentPlayer = 1;
         this.board = ChessGameBoard.getInstance();
@@ -42,6 +43,13 @@ public class ChessGameEngine{
                 + "game has been started. Player 1 (white) will play "
                 + "against Player 2 (black). BEGIN!" );
     }
+		
+		public static ChessGameEngine getInstance() {
+			if (instance == null) {
+				return new ChessGameEngine();
+			}
+			return instance;
+		}
     // ----------------------------------------------------------
     /**
      * Resets the game to its original state.
