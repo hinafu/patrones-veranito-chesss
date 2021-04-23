@@ -84,11 +84,18 @@ public class AdminPanel extends JFrame implements ActionListener{
 		if(e.getSource() == boton1){		
 			this.setVisible( false );
 			
-			JFrame frame = new JFrame( "YetAnotherChessGame 1.0 " );
+			JFrame frame = new JFrame( "YetAnotherChessGame 1.0 * Plan PRO " );
 			frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 			frame.getContentPane().add(new ChessPanel().getInstanciar());
+			frame.getContentPane().setBackground(Color.GREEN);
 			frame.pack();
 			frame.setVisible( true );
+			
+			ServerObserver2 PatronObserver2 = new ServerObserver2();
+				PatronObserver2.setBounds(0,0,400,150);
+				PatronObserver2.setVisible(true);
+				PatronObserver2.setResizable(false);
+				PatronObserver2.setLocationRelativeTo(null);
 		}
 		
 	}

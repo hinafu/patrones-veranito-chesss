@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import java.awt.event.ActionEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Carloss
  */
-public class DispatcherTest {
+public class ServerObserver2Test {
 	
-	public DispatcherTest() {
+	public ServerObserver2Test() {
 	}
 	
 	@BeforeClass
@@ -37,14 +38,14 @@ public class DispatcherTest {
 	}
 
 	/**
-	 * Test of dispatch method, of class Dispatcher.
+	 * Test of actionPerformed method, of class ServerObserver2.
 	 */
 	@Test
-	public void testDispatch() {
-		System.out.println("dispatch");
-		String request = "admin";
-		Dispatcher instance = new Dispatcher();
-		instance.dispatch(request);
+	public void testActionPerformed() {
+		System.out.println("actionPerformed");
+		ActionEvent e = null;
+		ServerObserver2 instance = new ServerObserver2();
+		instance.actionPerformed(e);
 		// TODO review the generated test code and remove the default call to fail.
 		fail("The test case is a prototype.");
 	}

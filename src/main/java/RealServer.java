@@ -29,6 +29,12 @@ public class RealServer implements Server{
         frame.getContentPane().add( new ChessPanel().getInstanciar() );
         frame.pack();
         frame.setVisible( true );
+				
+				ServerObserver2 PatronObserver = new ServerObserver2();
+				PatronObserver.setBounds(0,0,400,150);
+				PatronObserver.setVisible(true);
+				PatronObserver.setResizable(false);
+				PatronObserver.setLocationRelativeTo(null);
     }
 
 }

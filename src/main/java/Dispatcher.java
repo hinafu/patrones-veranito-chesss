@@ -27,6 +27,9 @@ public class Dispatcher {
 				panelAdmin.setBounds(450,350,400,300);
 				panelAdmin.setVisible(true);
 				panelAdmin.setResizable(false);
+				
+				
+				
       }else{
 				JOptionPane.showMessageDialog(null, "ERROR");
 			}

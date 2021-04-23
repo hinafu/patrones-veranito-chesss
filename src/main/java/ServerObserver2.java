@@ -54,11 +54,11 @@ private JButton boton1;
 			nList.add(Cliente);    
     }
 		
-		JFrame frame = new JFrame( "YetAnotherChessGame 1.0 " );
-		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-		frame.getContentPane().add(chessP);
-		frame.pack();
-		frame.setVisible( true );
+//		JFrame frame = new JFrame( "YetAnotherChessGame 1.0 " );
+//		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+//		frame.getContentPane().add(chessP);
+//		frame.pack();
+//		frame.setVisible( true );
 		this.setVisible(false);
 
 		timer.schedule(task, 10, 1000);

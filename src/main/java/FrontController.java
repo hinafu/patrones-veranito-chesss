@@ -17,6 +17,7 @@ public class FrontController {
 
    public FrontController () {
       dispatcher = new Dispatcher ();
+			System.out.println("Usando el Patron Front Controller");
    }
 
   boolean isAuthenticUser (String user,String contraseña) {

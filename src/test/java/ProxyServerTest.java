@@ -15,9 +15,9 @@ import static org.junit.Assert.*;
  *
  * @author Carloss
  */
-public class DispatcherTest {
+public class ProxyServerTest {
 	
-	public DispatcherTest() {
+	public ProxyServerTest() {
 	}
 	
 	@BeforeClass
@@ -37,14 +37,31 @@ public class DispatcherTest {
 	}
 
 	/**
-	 * Test of dispatch method, of class Dispatcher.
+	 * Test of Accediendo method, of class ProxyServer.
 	 */
 	@Test
-	public void testDispatch() {
-		System.out.println("dispatch");
-		String request = "admin";
-		Dispatcher instance = new Dispatcher();
-		instance.dispatch(request);
+	public void testAccediendo() {
+		System.out.println("Accediendo");
+		String usuario = "";
+		ProxyServer instance = null;
+		instance.Accediendo(usuario);
+		// TODO review the generated test code and remove the default call to fail.
+			fail("The test case is a prototype.");
+		
+		
+	}
+
+	/**
+	 * Test of isRestricted method, of class ProxyServer.
+	 */
+	@Test
+	public void testIsRestricted() {
+		System.out.println("isRestricted");
+		String usuario = "";
+		ProxyServer instance = null;
+		boolean expResult = false;
+		boolean result = instance.isRestricted(usuario);
+		assertEquals(expResult, result);
 		// TODO review the generated test code and remove the default call to fail.
 		fail("The test case is a prototype.");
 	}
