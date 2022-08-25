@@ -1,4 +1,7 @@
+package com.refactoring.chessgame;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Color;
@@ -16,12 +19,12 @@ import java.awt.GridLayout;
  */
 public class ChessGameBoard extends JPanel{
     private BoardSquare[][] chessCells;
-    private BoardListener   listener;
+    private transient BoardListener listener;
     // ----------------------------------------------------------
     /**
      * Returns the entire board.
      *
-     * @return BoardSquare[][] the chess board
+     * @return com.refactoring.chessgame.BoardSquare[][] the chess board
      */
     public BoardSquare[][] getCells(){
         return chessCells;
@@ -39,10 +42,10 @@ public class ChessGameBoard extends JPanel{
     }
     // ----------------------------------------------------------
     /**
-     * Gets the BoardSquare at row 'row' and column 'col'.
+     * Gets the com.refactoring.chessgame.BoardSquare at row 'row' and column 'col'.
      * @param row the row to look at
      * @param col the column to look at
-     * @return BoardSquare the square found, or null if it does not exist
+     * @return com.refactoring.chessgame.BoardSquare the square found, or null if it does not exist
      */
     public BoardSquare getCell( int row, int col ){
         if ( validateCoordinates( row, col ) ){
@@ -73,8 +76,8 @@ public class ChessGameBoard extends JPanel{
      *
      * @return ArrayList<GamePiece> the pieces
      */
-    public ArrayList<ChessGamePiece> getAllWhitePieces(){
-        ArrayList<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
+    public List<ChessGamePiece> getAllWhitePieces(){
+        List<ChessGamePiece> whitePieces = new ArrayList<>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
                 if ( chessCells[i][j].getPieceOnSquare() != null
@@ -92,8 +95,8 @@ public class ChessGameBoard extends JPanel{
      *
      * @return ArrayList<GamePiece> the pieces
      */
-    public ArrayList<ChessGamePiece> getAllBlackPieces(){
-        ArrayList<ChessGamePiece> blackPieces = new ArrayList<ChessGamePiece>();
+    public List<ChessGamePiece> getAllBlackPieces(){
+        List<ChessGamePiece> blackPieces = new ArrayList<>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
                 if ( chessCells[i][j].getPieceOnSquare() != null
@@ -107,7 +110,7 @@ public class ChessGameBoard extends JPanel{
     }
     // ----------------------------------------------------------
     /**
-     * Create a new ChessGameBoard object.
+     * Create a new com.refactoring.chessgame.ChessGameBoard object.
      */
     public ChessGameBoard(){
         this.setLayout( new GridLayout( 8, 8, 1, 1 ) );
@@ -148,11 +151,11 @@ public class ChessGameBoard extends JPanel{
             }
         }
         repaint();
-        //revalidate();
+
         // only the combination of these two calls work...*shrug*
     }
     /**
-     * (Re)initializes this ChessGameBoard to its default layout with all 32
+     * (Re)initializes this com.refactoring.chessgame.ChessGameBoard to its default layout with all 32
      * pieces added.
      */
     public void initializeBoard(){

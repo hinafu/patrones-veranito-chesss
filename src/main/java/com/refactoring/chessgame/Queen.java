@@ -1,9 +1,12 @@
+package com.refactoring.chessgame;
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import java.util.Objects;
 // import java.awt.Color;
 // -------------------------------------------------------------------------
 /**
- * Represents a Queen game piece.
+ * Represents a com.refactoring.chessgame.Queen game piece.
  *
  * @author Ben Katz (bakatz)
  * @author Myles David II (davidmm2)
@@ -14,7 +17,7 @@ public class Queen
     extends ChessGamePiece{
     // ----------------------------------------------------------
     /**
-     * Create a new Queen object.
+     * Create a new com.refactoring.chessgame.Queen object.
      *
      * @param board
      *            the board the queen is on
@@ -29,7 +32,7 @@ public class Queen
         super( board, row, col, color );
     }
     /**
-     * Calculates the possible moves for this Queen.
+     * Calculates the possible moves for this com.refactoring.chessgame.Queen.
      * @param board the board to check on
      * @return ArrayList<String> the list of moves
      */
@@ -63,18 +66,18 @@ public class Queen
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                getClass().getResource("chessImages/WhiteQueen.gif")
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/WhiteQueen.gif"))
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("chessImages/BlackQueen.gif")
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/BlackQueen.gif"))
             );            
         }
         else
         {
             return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif")
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/default-Unassigned.gif"))
             ); 
         }
     }

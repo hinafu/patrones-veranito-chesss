@@ -1,10 +1,13 @@
+package com.refactoring.chessgame;
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 // -------------------------------------------------------------------------
 /**
- * Represents a Rook game piece.
+ * Represents a com.refactoring.chessgame.Rook game piece.
  *
  * @author Ben Katz (bakatz)
  * @author Myles David II (davidmm2)
@@ -16,7 +19,7 @@ public class Rook extends ChessGamePiece{
 	// private ArrayList<String> possibleMoves;
 	// ----------------------------------------------------------
 	/**
-	 * Create a new Rook object.
+	 * Create a new com.refactoring.chessgame.Rook object.
 	 *
 	 * @param board
 	 *            the board to create the rook on
@@ -31,7 +34,7 @@ public class Rook extends ChessGamePiece{
 		super( board, row, col, color );
 	}
 	/**
-	 * Calculates the possible moves for this Rook.
+	 * Calculates the possible moves for this com.refactoring.chessgame.Rook.
 	 * @param board the board to check on
 	 * @return ArrayList<String> the list of moves
 	 */
@@ -61,6 +64,6 @@ public class Rook extends ChessGamePiece{
 		icons_map.put(ChessGamePiece.BLACK, "chessImages/BlackRook.gif");
 		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteRook.gif");
 		
-		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
+		return new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource(this.icons_map.get(getColorOfPiece()))));
 	}
 }

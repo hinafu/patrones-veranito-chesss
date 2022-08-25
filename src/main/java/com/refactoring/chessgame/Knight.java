@@ -1,8 +1,11 @@
+package com.refactoring.chessgame;
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import java.util.Objects;
 // -------------------------------------------------------------------------
 /**
- * Represents a Knight game piece.
+ * Represents a com.refactoring.chessgame.Knight game piece.
  *
  * @author Ben Katz (bakatz)
  * @author Myles David II (davidmm2)
@@ -12,7 +15,7 @@ import java.util.ArrayList;
 public class Knight
     extends ChessGamePiece{
     /**
-     * Knight constructor for gamePiece
+     * com.refactoring.chessgame.Knight constructor for gamePiece
      *
      * @param row
      *            the row to create the knight on
@@ -75,7 +78,7 @@ public class Knight
         return moves;
     }
     /**
-     * Calculates the possible moves for this Knight.
+     * Calculates the possible moves for this com.refactoring.chessgame.Knight.
      *
      * @param board
      *            the game board to check
@@ -99,18 +102,18 @@ public class Knight
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                getClass().getResource("chessImages/WhiteKnight.gif")
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/WhiteKnight.gif"))
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("chessImages/BlackKnight.gif")
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/BlackKnight.gif"))
             );            
         }
         else
         {
             return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif")
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/default-Unassigned.gif"))
             );            
         }
     }

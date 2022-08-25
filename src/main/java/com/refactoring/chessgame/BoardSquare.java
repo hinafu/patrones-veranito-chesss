@@ -1,3 +1,5 @@
+package com.refactoring.chessgame;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 // -------------------------------------------------------------------------
@@ -13,11 +15,11 @@ public class BoardSquare
     extends JPanel{
     private int            row;
     private int            col;
-    private ChessGamePiece piece;
+    private transient ChessGamePiece piece;
     private JLabel         imageLabel;
     // ----------------------------------------------------------
     /**
-     * Create a new BoardSquare object.
+     * Create a new com.refactoring.chessgame.BoardSquare object.
      *
      * @param row
      *            the row
@@ -34,7 +36,7 @@ public class BoardSquare
         updateImage();
     }
     /**
-     * Updates the image for this BoardSquare.
+     * Updates the image for this com.refactoring.chessgame.BoardSquare.
      */
     private void updateImage(){
         if ( imageLabel != null ){

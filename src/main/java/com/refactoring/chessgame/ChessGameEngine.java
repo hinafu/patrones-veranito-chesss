@@ -1,7 +1,9 @@
-import java.util.ArrayList;
+package com.refactoring.chessgame;
+
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import java.awt.event.MouseEvent;
+import java.util.List;
 // -------------------------------------------------------------------------
 /**
  * This is the backend behind the Chess game. Handles the turn-based aspects of
@@ -21,11 +23,11 @@ public class ChessGameEngine{
     private King           king2;
     // ----------------------------------------------------------
     /**
-     * Create a new ChessGameEngine object. Accepts a fully-created
-     * ChessGameBoard. (i.e. all components rendered)
+     * Create a new com.refactoring.chessgame.ChessGameEngine object. Accepts a fully-created
+     * com.refactoring.chessgame.ChessGameBoard. (i.e. all components rendered)
      *
      * @param board
-     *            the reference ChessGameBoard
+     *            the reference com.refactoring.chessgame.ChessGameBoard
      */
     public ChessGameEngine( ChessGameBoard board ){
         firstClick = true;
@@ -83,7 +85,7 @@ public class ChessGameEngine{
      * @return boolean true if the player does have legal moves, false otherwise
      */
     public boolean playerHasLegalMoves( int playerNum ){
-        ArrayList<ChessGamePiece> pieces;
+        List<ChessGamePiece> pieces;
         if ( playerNum == 1 ){
             pieces = board.getAllWhitePieces();
         }
@@ -113,22 +115,16 @@ public class ChessGameEngine{
         }
         if ( currentPlayer == 2 ) // black player
         {
-            if ( currentPiece.getColorOfPiece() == ChessGamePiece.BLACK ){
-                return true;
-            }
-            return false;
+            return currentPiece.getColorOfPiece() == ChessGamePiece.BLACK;
         }
         else
         // white player
         {
-            if ( currentPiece.getColorOfPiece() == ChessGamePiece.WHITE ){
-                return true;
-            }
-            return false;
+            return currentPiece.getColorOfPiece() == ChessGamePiece.WHITE;
         }
     }
     /**
-     * Determines if the requested King is in check.
+     * Determines if the requested com.refactoring.chessgame.King is in check.
      *
      * @param checkCurrent
      *            if true, will check if the current king is in check if false,
@@ -167,7 +163,7 @@ public class ChessGameEngine{
         else
         {
             board.resetBoard( false );
-            // System.exit(0);
+
         }
     }
     /**

@@ -1,8 +1,11 @@
+package com.refactoring.chessgame;
+
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import java.util.Objects;
 // -------------------------------------------------------------------------
 /**
- * Represents a King game piece.
+ * Represents a com.refactoring.chessgame.King game piece.
  *
  * @author Ben Katz (bakatz)
  * @author Myles David II (davidmm2)
@@ -13,7 +16,7 @@ public class King
     extends ChessGamePiece{
     // ----------------------------------------------------------
     /**
-     * Create a new King object.
+     * Create a new com.refactoring.chessgame.King object.
      *
      * @param board
      *            the board to create the king on
@@ -57,7 +60,7 @@ public class King
         return allMoves;
     }
     /**
-     * Determines if this King is checked.
+     * Determines if this com.refactoring.chessgame.King is checked.
      *
      * @param board
      *            the board to check on
@@ -75,18 +78,18 @@ public class King
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                getClass().getResource("chessImages/WhiteKing.gif")
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/WhiteKing.gif"))
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("chessImages/BlackKing.gif" )
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/BlackKing.gif"))
             );            
         }
         else
         {
             return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif" )
+                    Objects.requireNonNull(getClass().getClassLoader().getResource("chessImages/default-Unassigned.gif"))
             );            
         }
     }

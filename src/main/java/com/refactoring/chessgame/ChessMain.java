@@ -1,3 +1,5 @@
+package com.refactoring.chessgame;
+
 import javax.swing.*;
 // -------------------------------------------------------------------------
 /**
