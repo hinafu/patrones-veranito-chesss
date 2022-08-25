@@ -2,5 +2,5 @@ projectKey=com.mycompany:veranito-chess
 serverUrl=http://localhost:9000
 serverVersion=9.6.0.59041
 dashboardUrl=http://localhost:9000/dashboard?id=com.mycompany%3Averanito-chess
-ceTaskId=AYLXFU1IxpQP_qWa91To
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYLXFU1IxpQP_qWa91To
+ceTaskId=AYLXKYjbxpQP_qWa91Tp
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYLXKYjbxpQP_qWa91Tp

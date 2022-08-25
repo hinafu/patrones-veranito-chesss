@@ -2,8 +2,6 @@ package com.refactoring.chessgame;
 
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 // -------------------------------------------------------------------------
 /**
@@ -60,9 +58,6 @@ public class King
         allMoves.addAll( westMoves );
         allMoves.addAll( eastMoves );
         return allMoves;
-    }
-    static void fillMoves(Map<String, ArrayList<String>> moves){
-
     }
     /**
      * Determines if this com.refactoring.chessgame.King is checked.

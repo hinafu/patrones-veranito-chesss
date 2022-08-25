@@ -2,8 +2,6 @@ package com.refactoring.chessgame;
 
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 // -------------------------------------------------------------------------
