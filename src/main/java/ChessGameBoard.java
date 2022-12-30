@@ -162,40 +162,92 @@ public class ChessGameBoard extends JPanel {
      * (Re)initializes this ChessGameBoard to its default layout with all 32
      * pieces added.
      */
+    // public void initializeBoard() {
+    // resetBoard(false);
+    // for (int i = 0; i < chessCells.length; i++) {
+    // for (int j = 0; j < chessCells[0].length; j++) {
+    // ChessGamePiece pieceToAdd;
+    // if (i == 1) // black pawns
+    // {
+    // pieceToAdd = new Pawn(this, i, j, ChessGamePiece.BLACK);
+    // } else if (i == 6) // white pawns
+    // {
+    // pieceToAdd = new Pawn(this, i, j, ChessGamePiece.WHITE);
+    // } else if (i == 0 || i == 7) // main rows
+    // {
+    // int colNum = i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
+    // if (j == 0 || j == 7) {
+    // pieceToAdd = new Rook(this, i, j, colNum);
+    // } else if (j == 1 || j == 6) {
+    // pieceToAdd = new Knight(this, i, j, colNum);
+    // } else if (j == 2 || j == 5) {
+    // pieceToAdd = new Bishop(this, i, j, colNum);
+    // } else if (j == 3) {
+    // pieceToAdd = new King(this, i, j, colNum);
+    // } else {
+    // pieceToAdd = new Queen(this, i, j, colNum);
+    // }
+    // } else {
+    // pieceToAdd = null;
+    // }
+    // chessCells[i][j] = new BoardSquare(i, j, pieceToAdd);
+    // if ((i + j) % 2 == 0) {
+    // chessCells[i][j].setBackground(Color.WHITE);
+    // } else {
+    // chessCells[i][j].setBackground(Color.BLACK);
+    // }
+    // chessCells[i][j].addMouseListener(listener);
+    // this.add(chessCells[i][j]);
+    // }
+    // }
+    // }
     public void initializeBoard() {
         resetBoard(false);
+        var firstChessRow = chessCells[0];
         for (int i = 0; i < chessCells.length; i++) {
-            for (int j = 0; j < chessCells[0].length; j++) {
+            for (int j = 0; j < firstChessRow.length; j++) {
                 ChessGamePiece pieceToAdd;
-                if (i == 1) // black pawns
-                {
-                    pieceToAdd = new Pawn(this, i, j, ChessGamePiece.BLACK);
-                } else if (i == 6) // white pawns
-                {
-                    pieceToAdd = new Pawn(this, i, j, ChessGamePiece.WHITE);
-                } else if (i == 0 || i == 7) // main rows
-                {
-                    int colNum = i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
-                    if (j == 0 || j == 7) {
-                        pieceToAdd = new Rook(this, i, j, colNum);
-                    } else if (j == 1 || j == 6) {
-                        pieceToAdd = new Knight(this, i, j, colNum);
-                    } else if (j == 2 || j == 5) {
-                        pieceToAdd = new Bishop(this, i, j, colNum);
-                    } else if (j == 3) {
-                        pieceToAdd = new King(this, i, j, colNum);
-                    } else {
-                        pieceToAdd = new Queen(this, i, j, colNum);
-                    }
-                } else {
-                    pieceToAdd = null;
+                switch (i) {
+                    case 1: // black pawns
+                        pieceToAdd = new Pawn(this, i, j, ChessGamePiece.BLACK);
+                        break;
+                    case 6: // white pawns
+                        pieceToAdd = new Pawn(this, i, j, ChessGamePiece.WHITE);
+                        break;
+                    case 0: // black main row
+                    case 7: // white main row
+                        int colNum = (i == 0) ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
+                        switch (j) {
+                            case 0:
+                            case 7:
+                                pieceToAdd = new Rook(this, i, j, colNum);
+                                break;
+                            case 1:
+                            case 6:
+                                pieceToAdd = new Knight(this, i, j, colNum);
+                                break;
+                            case 2:
+                            case 5:
+                                pieceToAdd = new Bishop(this, i, j, colNum);
+                                break;
+                            case 3:
+                                pieceToAdd = new King(this, i, j, colNum);
+                                break;
+                            case 4:
+                                pieceToAdd = new Queen(this, i, j, colNum);
+                                break;
+                            default:
+                                pieceToAdd = null;
+                                break;
+                        }
+                        break;
+                    default:
+                        pieceToAdd = null;
+                        break;
                 }
+                var color = (i + j) % 2 == 0 ? Color.WHITE : Color.BLACK;
+                chessCells[i][j].setBackground(color);
                 chessCells[i][j] = new BoardSquare(i, j, pieceToAdd);
-                if ((i + j) % 2 == 0) {
-                    chessCells[i][j].setBackground(Color.WHITE);
-                } else {
-                    chessCells[i][j].setBackground(Color.BLACK);
-                }
                 chessCells[i][j].addMouseListener(listener);
                 this.add(chessCells[i][j]);
             }
