@@ -245,9 +245,9 @@ public class ChessGameBoard extends JPanel {
                         pieceToAdd = null;
                         break;
                 }
+                chessCells[i][j] = new BoardSquare(i, j, pieceToAdd);
                 var color = (i + j) % 2 == 0 ? Color.WHITE : Color.BLACK;
                 chessCells[i][j].setBackground(color);
-                chessCells[i][j] = new BoardSquare(i, j, pieceToAdd);
                 chessCells[i][j].addMouseListener(listener);
                 this.add(chessCells[i][j]);
             }
